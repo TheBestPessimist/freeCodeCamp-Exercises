@@ -1,34 +1,37 @@
-<!--include jquery-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>About The Pessimist</title>
 
-<!-- include bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-      integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!--include jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
-<!-- Include font awesome -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- include bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
-
-<style type="text/css">
-    body {
-        background: rgb(40, 21, 48) !important;
-        color: #a0adba;
-        position: relative;
-    }
-
-    .dynamically-sized-anchor {
-        /*this one's modified in the method computeDynamicPaddingForAnchor()*/
-        padding-top: 0px;
-    }
+    <!-- Include font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
-</style>
+    <style type="text/css">
+        body {
+            background: rgb(40, 21, 48) !important;
+            color: #a0adba;
+            position: relative;
+        }
+
+        .dynamically-sized-anchor {
+            /*this one's modified in the method computeDynamicPaddingForAnchor()*/
+            padding-top: 0px;
+        }
+    </style>
 
 
-<!--stuff begins here -->
-<!--<body>-->
-
+</head>
+<body>
 
 <div class="alert alert-warning" role="alert"> I have to do something that looks like this:
     <a href="https://codepen.io/freeCodeCamp/full/YqLyXB" target="_blank">website/portofolio</a>, and has about the same
@@ -44,21 +47,35 @@
 <hr style="background-color: red; height: 1px; border: 0;">
 
 
-<!--
-    - navbar-toggleable-sm: this makes the navbar entries align horizontally
-    - DO USE flex-sm-row to make the items stay as a row when zooming in a lot, otherwise they will quickly become
-        stacked at different than default zoom levels.
--->
-<nav id="main-navbar"
-     class="navbar navbar-toggleable-sm sticky-top bg-inverse text-white flex-sm-row justify-content-end">
+<div id="top-nav-and-progress" class="sticky-top">
+    <div class="progress">
+        <div id="top-progress-bar"
+             class="progress-bar"
+             role="progressbar"
+             style="width: 0px; height: 2px"
+             aria-valuenow="0"
+             aria-valuemin="0"
+             aria-valuemax="100">
+        </div>
+    </div>
 
-    <a class="navbar-brand navbar-text mr-auto">About The Pessimist</a>
+    <!--
+        - navbar-toggleable-sm: this makes the navbar entries align horizontally
+        - DO USE flex-sm-row to make the items stay as a row when zooming in a lot, otherwise they will quickly become
+            stacked at different than default zoom levels.
+    -->
+    <nav id="main-navbar"
+         class="navbar navbar-toggleable-sm bg-inverse text-white flex-sm-row justify-content-end">
 
-    <a class="nav-link" href="#about">About</a>
-    <a class="nav-link" href="#work">Work</a>
-    <a class="nav-link" href="#social_media">Social Media</a>
+        <a class="navbar-brand navbar-text mr-auto">About The Pessimist</a>
 
-</nav>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#work">Work</a>
+        <a class="nav-link" href="#social_media">Social Media</a>
+
+    </nav>
+</div>
+
 
 <!--the content div should not contain the navbar, as it shrinks its width by just a little bit, and therefore the
     navbar is no longer <browser-size> wide-->
@@ -211,28 +228,50 @@ info: here: https://v4-alpha.getbootstrap.com/utilities/spacing/
 </footer>
 
 
-<!--This script is used to handle clicking the anchors and handling the variable-size bootstrap navbar-->
 <script>
-    // i have to bind both the window resize and load because
-    // - onLoad the padding may be wrong
-    // - onResize the padding will be wrong (because navbar size changes)
-    // note that resize means zooming the page, or actually resizing the browser window.
+    /**
+     * This script is used to handle clicking the anchors and handling the variable-size bootstrap navbar
+     *
+     * i have to bind both the window resize and load because
+     * - onLoad the padding may be wrong
+     * - onResize the padding will be wrong (because navbar size changes)
+     * note that resize means zooming the page, or actually resizing the browser window.
+     */
     function computeDynamicPaddingForAnchor() {
         $(".dynamically-sized-anchor").each(function () {
-            var navbarHeight = $("#main-navbar").height();
+            var navbarHeight = $("#top-nav-and-progress").outerHeight() + 0;
 
             // in this case, what is "this"???? the html elements??? why are they "this" and not some named variable???
             // 20 is used because otherwise the text will still be placed under the freaking navbar
             // the 20 may or may not be wrong on low-res devices (ya know, dpi and such)
-            $(this)[0].style.paddingTop = navbarHeight + 20;
-            $(this)[0].style.marginTop = -1 * (navbarHeight + 20);
-//            console.log($(this)[0].style.paddingTop);
+            $(this)[0].style.paddingTop = navbarHeight + "px";
+            $(this)[0].style.marginTop = -1 * (navbarHeight) + "px";
         });
     }
-
     $(window).bind("resize load", function () {
         computeDynamicPaddingForAnchor();
     });
+
+
+    /**
+     * Magics for getting the scroll percentage.
+     *
+     * @returns {number}
+     */
+    function getScrollPercent() {
+        return 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+    }
+
+    function updateTopProgressBar() {
+        var theScrollPercent = getScrollPercent();
+
+        var topProgressBar = $("#top-progress-bar")[0];
+        topProgressBar.style.width = theScrollPercent + "%";
+        topProgressBar.setAttribute("aria-valuenow", theScrollPercent.toString());
+    }
+    window.onscroll = updateTopProgressBar;
 </script>
 
-<!--</body>-->
+
+</body>
+</html>
