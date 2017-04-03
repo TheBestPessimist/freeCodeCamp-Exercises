@@ -1,16 +1,33 @@
-<!--&lt;!&ndash;include jquery&ndash;&gt;-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
+<!--include jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
 <!-- include bootstrap -->
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
       integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
 
 <!-- Include font awesome -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+<style type="text/css">
+    body {
+        background: rgb(40, 21, 48) !important;
+        color: #a0adba;
+        position: relative;
+    }
+
+    .dynamically-sized-anchor {
+        /*this one's modified in the method computeDynamicPaddingForAnchor()*/
+        padding-top: 0px;
+    }
+
+
+</style>
+
+
+<!--stuff begins here -->
+<!--<body>-->
 
 
 <div class="alert alert-warning" role="alert"> I have to do something that looks like this:
@@ -26,44 +43,35 @@
 <hr style="background-color: red; height: 1px; border: 0;">
 <hr style="background-color: red; height: 1px; border: 0;">
 
-<style type="text/css">
-    body {
-        background: rgb(40, 21, 48) !important;
-        color: #a0adba;
-    }
 
-    .dynamic_anchor {
-        padding-top: 0px;
-    }
-</style>
+<!--
+    - navbar-toggleable-sm: this makes the navbar entries align horizontally
+    - DO USE flex-sm-row to make the items stay as a row when zooming in a lot, otherwise they will quickly become
+        stacked at different than default zoom levels.
+-->
+<nav id="main-navbar"
+     class="navbar navbar-toggleable-sm sticky-top bg-inverse text-white flex-sm-row justify-content-end">
 
+    <a class="navbar-brand navbar-text mr-auto">About The Pessimist</a>
 
-<!-- navbar-toggleable-md: this makes the navbar entries align horrizontaly -->
-<nav id="main_navbar" class="navbar navbar-toggleable-md sticky-top bg-inverse text-white ">
-    <a href="" class="navbar-brand"> This is the bloody navbar title.</a>
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#work">Work</a>
+    <a class="nav-link" href="#social_media">Social Media</a>
 
-
-    <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#social_media">Social Media</a></li>
-        <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
-        <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
-        <li class="nav-item">
-            <i class="fa fa-telegram" aria-hidden="true"> This is the bloody telegram icon from font awesome </i>
-        </li>
-        <li class="nav-item">
-            <i class="fa fa-telegram" aria-hidden="true"> This is the bloody telegram icon from font awesome </i>
-        </li>
-
-    </ul>
 </nav>
 
 <!--the content div should not contain the navbar, as it shrinks its width by just a little bit, and therefore the
     navbar is no longer <browser-size> wide-->
 <div class="container">
 
-    <div id="about" class="dynamic_anchor">
+    <div id="about" class="dynamically-sized-anchor">
         <h3>About TheBestPessimist</h3>
+
+        <a class="btn  btn-default  btn-sm" href="#"> <i class="fa fa-lg fa-cog"></i> Settings</a>
+        <a href="#"><i class="fa fa-facebook-square fa-lg fa-fw" aria-hidden="true"> </i> facebook </a>
+        <a class="btn  btn-default  btn-sm" href="#"> <i class="fa fa-lg fa-cog"></i> Settings</a>
+
+
         <p>Accusantium animi aut beatae, delectus eum incidunt ipsum, nam nesciunt placeat porro qui repellendus,
            sapiente?
            Consectetur dolor doloribus earum eveniet excepturi facere facilis ipsa optio, quas quia quisquam sint
@@ -135,9 +143,7 @@
     </div>
 
 
-
-
-    <div id="work" class="dynamic_anchor">
+    <div id="work" class="dynamically-sized-anchor">
         <h3>Work</h3>
         <p>Consequatur debitis eligendi numquam obcaecati sed sint tenetur? Ad culpa incidunt quod. Adipisci dolor
            eaque
@@ -183,57 +189,26 @@
            debitis harum obcaecati omnis quisquam repellat repellendus vero? Deserunt, iste, iure? Nisi, nulla sint!</p>
     </div>
 
-    <div id="social_media" class="dynamic_anchor">
+    <div id="social_media" class="dynamically-sized-anchor">
         <h3>Social Media</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias autem consequuntur corporis
-           ducimus
-           eligendi nam rerum, unde voluptatem. Animi aspernatur delectus eveniet expedita, numquam perferendis
-           placeat
-           quisquam ratione temporibus.</p>
-        <p>Ad asperiores blanditiis commodi consequatur deleniti dignissimos dolore eligendi et eum facere, ipsum
-           iste
-           iusto
-           molestiae obcaecati porro possimus praesentium saepe, sint ullam voluptatibus. Accusamus, eligendi,
-           labore?
-           Consectetur, quasi, sit!</p>
-        <p>Architecto at blanditiis consectetur consequuntur culpa cumque cupiditate delectus ex fuga inventore
-           ipsam
-           magni
-           maiores, minima natus obcaecati officiis praesentium qui quidem quo quod sed similique sunt tenetur unde
-           veritatis.</p>
-        <p>Aliquid asperiores culpa eos maiores ullam? Adipisci aliquid atque blanditiis commodi consectetur culpa
-           dolorum
-           facere fuga iusto, maiores molestias natus, obcaecati odio optio praesentium quae quaerat quisquam sit
-           soluta
-           voluptas.</p>
-        <p>Alias aliquid animi aperiam autem commodi consequuntur culpa deleniti, doloremque eum excepturi expedita
-           fugiat
-           harum impedit inventore labore laboriosam magni, minima mollitia perspiciatis placeat quam quas tempora
-           temporibus ullam velit.</p>
-        <p>Earum, exercitationem veritatis? Ab amet atque autem blanditiis ea ex exercitationem hic in labore
-           laborum
-           nesciunt nihil omnis pariatur provident qui quidem reiciendis sunt, unde vel voluptatem! Autem facere,
-           ullam!</p>
-        <p>Alias amet aperiam architecto cumque cupiditate eligendi enim eos ex illo maxime modi neque odit officia,
-           quaerat
-           quis recusandae repellendus sit soluta sunt totam. Deserunt harum quisquam quod similique sit.</p>
-        <p>Accusamus eligendi et excepturi minima nesciunt nisi optio! Aliquid, dolorem doloribus eligendi, eos
-           facere
-           facilis id impedit itaque laboriosam repellendus tempore velit, vero voluptate. Nam porro repellendus
-           voluptatem.
-           Magnam, quis.</p>
+        <i class="fa fa-facebook-square fa-lg" aria-hidden="true">This is the bloody facebook icon from font awesome</i>
+
     </div>
 
 </div>
 
 
-<footer class="footer bg-inverse">
+<!--
+    - p-3 = padding in all directions for $spacer size
+    - mt-3 = margin top only 3 spacer size
+info: here: https://v4-alpha.getbootstrap.com/utilities/spacing/
+- someone explain to me what is $spacer??? -->
+<footer class=" bg-inverse  p-3 mt-3">
     <div class="container text-muted">
         Created by TheBestPessimist during hours and hours of googling, listening to music and tuning Intellij Idea for
         web "development".
     </div>
 </footer>
-
 
 
 <!--This script is used to handle clicking the anchors and handling the variable-size bootstrap navbar-->
@@ -242,9 +217,9 @@
     // - onLoad the padding may be wrong
     // - onResize the padding will be wrong (because navbar size changes)
     // note that resize means zooming the page, or actually resizing the browser window.
-    $(window).bind("resize load", function () {
-        $(".dynamic_anchor").each(function () {
-            var navbarHeight = $("#main_navbar").height();
+    function computeDynamicPaddingForAnchor() {
+        $(".dynamically-sized-anchor").each(function () {
+            var navbarHeight = $("#main-navbar").height();
 
             // in this case, what is "this"???? the html elements??? why are they "this" and not some named variable???
             // 20 is used because otherwise the text will still be placed under the freaking navbar
@@ -253,5 +228,11 @@
             $(this)[0].style.marginTop = -1 * (navbarHeight + 20);
 //            console.log($(this)[0].style.paddingTop);
         });
+    }
+
+    $(window).bind("resize load", function () {
+        computeDynamicPaddingForAnchor();
     });
 </script>
+
+<!--</body>-->
