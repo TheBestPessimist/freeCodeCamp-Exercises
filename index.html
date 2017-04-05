@@ -25,7 +25,7 @@
             position: relative;
         }
 
-        .dynamically-sized-anchor {
+        .dynamically-positioned-anchor {
             /*this one's modified in the method computeDynamicPaddingForAnchor()*/
             padding-top: 0px;
         }
@@ -83,7 +83,7 @@
     navbar is no longer <browser-size> wide-->
 <div class="container">
 
-    <div id="about" class="dynamically-sized-anchor">
+    <div id="about" class="dynamically-positioned-anchor">
         <h3>About TheBestPessimist</h3>
 
         <a class="btn  btn-default  btn-sm" href="#"> <i class="fa fa-lg fa-cog"></i> Settings</a>
@@ -162,7 +162,7 @@
     </div>
 
 
-    <div id="work" class="dynamically-sized-anchor">
+    <div id="work" class="dynamically-positioned-anchor">
         <h3>Work</h3>
         <p>Consequatur debitis eligendi numquam obcaecati sed sint tenetur? Ad culpa incidunt quod. Adipisci dolor
            eaque
@@ -208,7 +208,7 @@
            debitis harum obcaecati omnis quisquam repellat repellendus vero? Deserunt, iste, iure? Nisi, nulla sint!</p>
     </div>
 
-    <div id="social_media" class="dynamically-sized-anchor">
+    <div id="social_media" class="dynamically-positioned-anchor">
         <h3>Social Media</h3>
         <i class="fa fa-facebook-square fa-lg" aria-hidden="true">This is the bloody facebook icon from font awesome</i>
 
@@ -242,7 +242,7 @@ info: here: https://v4-alpha.getbootstrap.com/utilities/spacing/
             scrollTop: $elementToScrollTo.offset().top - $("#top-nav-and-progress").outerHeight()
         }, 1900, "easeInOutCubic");
 
-        return false;
+        return false; // so that the default action (anchor-move) doesn't happen
     });
 
 
@@ -277,8 +277,8 @@ info: here: https://v4-alpha.getbootstrap.com/utilities/spacing/
     //     * note that resize means zooming the page, or actually resizing the browser window.
     //     */
     //    $(window).bind("resize load", function () {
-    //        $(".dynamically-sized-anchor").each(function () {
-    //            var navbarHeight = $("#top-nav-and-progress").outerHeight() + 0;
+    //        $(".dynamically-positioned-anchor").each(function () {
+    //            var navbarHeight = $("#top-nav-and-progress").outerHeight();
     //
     //            // in this case, what is "this"???? the html elements??? why are they "this" and not some named variable???
     //            // 20 is used because otherwise the text will still be placed under the freaking navbar
