@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>About The Pessimist</title>
 
-    <!--include jquery-->
+    <!--include jQuery an jQuery UI-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 
     <!-- include bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
@@ -17,6 +18,7 @@
 
 
     <style type="text/css">
+
         body {
             background: rgb(40, 21, 48) !important;
             color: #a0adba;
@@ -69,9 +71,9 @@
 
         <a class="navbar-brand navbar-text mr-auto">About The Pessimist</a>
 
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#work">Work</a>
-        <a class="nav-link" href="#social_media">Social Media</a>
+        <a class="nav-link scroll-animated" href="#about">About</a>
+        <a class="nav-link scroll-animated" href="#work">Work</a>
+        <a class="nav-link scroll-animated" href="#social_media">Social Media</a>
 
     </nav>
 </div>
@@ -230,31 +232,23 @@ info: here: https://v4-alpha.getbootstrap.com/utilities/spacing/
 
 <script>
     /**
-     * This script is used to handle clicking the anchors and handling the variable-size bootstrap navbar
-     *
-     * i have to bind both the window resize and load because
-     * - onLoad the padding may be wrong
-     * - onResize the padding will be wrong (because navbar size changes)
-     * note that resize means zooming the page, or actually resizing the browser window.
+     * Use jQuery to scroll animated to the target of an anchor.
      */
-    function computeDynamicPaddingForAnchor() {
-        $(".dynamically-sized-anchor").each(function () {
-            var navbarHeight = $("#top-nav-and-progress").outerHeight() + 0;
+    $(".scroll-animated").click(function () {
+        var $elementHref = $(this).attr("href");
+        var $elementToScrollTo = $($elementHref);
 
-            // in this case, what is "this"???? the html elements??? why are they "this" and not some named variable???
-            // 20 is used because otherwise the text will still be placed under the freaking navbar
-            // the 20 may or may not be wrong on low-res devices (ya know, dpi and such)
-            $(this)[0].style.paddingTop = navbarHeight + "px";
-            $(this)[0].style.marginTop = -1 * (navbarHeight) + "px";
-        });
-    }
-    $(window).bind("resize load", function () {
-        computeDynamicPaddingForAnchor();
+        $('html, body').animate({
+            scrollTop: $elementToScrollTo.offset().top - $("#top-nav-and-progress").outerHeight()
+        }, 1900, "easeInOutCubic");
+
+        return false;
     });
 
 
     /**
      * Magics for getting the scroll percentage.
+     * Stackoverflow trickery.
      *
      * @returns {number}
      */
@@ -270,6 +264,30 @@ info: here: https://v4-alpha.getbootstrap.com/utilities/spacing/
         topProgressBar.setAttribute("aria-valuenow", theScrollPercent.toString());
     }
     window.onscroll = updateTopProgressBar;
+
+
+    //    /**
+    //     * @deprecated: since using jQuery scroll to anchor
+    //     *
+    //     * This script is used to handle clicking the anchors and handling the variable-size bootstrap navbar
+    //     *
+    //     * i have to bind both the window resize and load because
+    //     * - onLoad the padding may be wrong
+    //     * - onResize the padding will be wrong (because navbar size changes)
+    //     * note that resize means zooming the page, or actually resizing the browser window.
+    //     */
+    //    $(window).bind("resize load", function () {
+    //        $(".dynamically-sized-anchor").each(function () {
+    //            var navbarHeight = $("#top-nav-and-progress").outerHeight() + 0;
+    //
+    //            // in this case, what is "this"???? the html elements??? why are they "this" and not some named variable???
+    //            // 20 is used because otherwise the text will still be placed under the freaking navbar
+    //            // the 20 may or may not be wrong on low-res devices (ya know, dpi and such)
+    //            $(this)[0].style.paddingTop = navbarHeight + "px";
+    //            $(this)[0].style.marginTop = -1 * (navbarHeight) + "px";
+    //        });
+    //    });
+
 </script>
 
 
