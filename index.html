@@ -231,22 +231,41 @@ info: here: https://v4-alpha.getbootstrap.com/utilities/spacing/
 
 
 <script>
-    /**
+    var page = $('html, body');
+
+    /*************************************************************
      * Use jQuery to scroll animated to the target of an anchor.
+     *
+     * Also use some Stackoverflow trickery so that the scroll animation is stopped when the user
+     * scrolls/clicks another anchor, etc.
+     *
+     * magics: https://stackoverflow.com/questions/18445590/jquery-animate-stop-scrolling-when-user-scrolls-manually
      */
     $(".scroll-animated").click(function () {
         var $elementHref = $(this).attr("href");
         var $elementToScrollTo = $($elementHref);
 
-        $('html, body').animate({
-            scrollTop: $elementToScrollTo.offset().top - $("#top-nav-and-progress").outerHeight()
-        }, 1900, "easeInOutCubic");
+
+        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function () {
+            page.stop();
+        });
+
+
+        page.animate(
+            {scrollTop: $elementToScrollTo.offset().top - $("#top-nav-and-progress").outerHeight()},
+            900, "easeInOutCubic",
+            function () {
+                page.off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+            }
+        );
 
         return false; // so that the default action (anchor-move) doesn't happen
     });
 
 
-    /**
+    /*************************************************************************
+     * This is for the top bar which shows the scroll progress.
+     *
      * Magics for getting the scroll percentage.
      * Stackoverflow trickery.
      *
