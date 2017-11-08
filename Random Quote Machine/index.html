@@ -6,83 +6,83 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-          crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
+    <!--&lt;!&ndash; bootstrap css &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"-->
+    <!--integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
 
 
     <style type="text/css">
-        .main-accent-color {
+        .background-color {
             background-color: slateblue;
-            color: slateblue;
         }
 
-        .inverted-main-accent-color {
-            background-color: whitesmoke;
+        .center-div {
+            position: absolute; /*still don't understand exactly what this does*/
+            top: 25%; /*move 1/4 of screen lower (i think this means distance to top)*/
+            left: 25%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
+
+            width: 50%; /*size relative to parent element*/
+
+            border-radius: 15px; /*rounded corners babyyyyyy!*/
+
+            /* just for debugging */
+            background-color: #64ba2a;
         }
 
-        .absolute-center {
-            width: 99%;
-            height: 99%;
-            overflow: auto;
-            margin: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+        .quote-center {
+            color: khaki;
+            font-size: 2em;
             text-align: center;
+            font-style: italic;
+
+            margin-right: 3%;
+            margin-left: 3%;
         }
 
-        .main-div-aspect {
-            height: 110px;
-            width: 200px;
+        .author-lower-right {
+            color: khaki;
+            font-size: 2em;
+            text-align: right;
+            font-style: italic;
 
-            border-radius: 2%; /* a little bit of corner rounding */
+            margin-right: 5%;
+            margin-left: 5%;
+
+            /* just for debugging */
+            /*background-color: indianred;*/
         }
+
     </style>
+
 </head>
-<body class="main-accent-color">
+<body class="background-color">
 
-<!--<div class="container-fluid">-->
+<div class="center-div">
+    <p id="quote-text" class="quote-center">
+        Le epic.
+        <br>Quite epic!.
+        <br>How about some more text which should span on multiple lines?
+        <br> what about another line?
+    </p>
+    <p id="quote-author" class="author-lower-right">
+        The not quite one and only<br> - TheBestPessimist
+    </p>
+</div>
 
-    <div class="inverted-main-accent-color absolute-center main-div-aspect">
-
-        <p id="quote-text" class=" ">
-            Le epic.
-
-            Quite epic!.
-        </p>
-
-
-    </div>
-
-
-<!--</div>-->
 
 <script>
-    <!-- Here comes the java script -->
-
-
 </script>
 
-
-<span style="z-index:50;font-size:0.9em;"><img src="https://theysaidso.com/branding/theysaidso.png"
-                                               height="20"
-                                               width="20"
-                                               alt="theysaidso.com"/><a href="https://theysaidso.com"
-                                                                        title="Powered by quotes from theysaidso.com"
-                                                                        style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a></span>
+<!--&lt;!&ndash; bootstrap js &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"-->
+<!--integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"-->
+<!--crossorigin="anonymous"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"-->
+<!--integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"-->
+<!--crossorigin="anonymous"></script>-->
 
 </body>
 </html>
