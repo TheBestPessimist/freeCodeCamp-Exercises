@@ -12,7 +12,7 @@
 
 
     <style type="text/css">
-        .background-color {
+        .body-background-color {
             background-color: slateblue;
         }
 
@@ -25,6 +25,8 @@
 
             border-radius: 15px; /*rounded corners babyyyyyy!*/
 
+            /*display: inline;*/
+
             /* just for debugging */
             background-color: #64ba2a;
         }
@@ -33,14 +35,14 @@
             color: khaki;
             font-size: 2em;
             text-align: center;
-            font-style: italic;
+            /*font-style: italic;*/
 
             margin-right: 3%;
             margin-left: 3%;
         }
 
         .author-lower-right {
-            color: khaki;
+            color: dimgrey;
             font-size: 2em;
             text-align: right;
             font-style: italic;
@@ -52,26 +54,45 @@
             /*background-color: indianred;*/
         }
 
+        .buttons-div {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .button-generate-new-quote1 {
+            /*display: block;*/
+            padding: 0.4em;
+            margin: 1em;
+        }
+
     </style>
 
 </head>
-<body class="background-color">
+<body class="body-background-color">
+
 
 <div class="center-div">
+
     <p id="quote-text" class="quote-center">
         Le epic.
         <br>Quite epic!.
         <br>How about some more text which should span on multiple lines?
         <br> what about another line?
     </p>
-    <p id="quote-author" class="author-lower-right">
+    <p id="quote-author" class="author-lower-right button-generate-new-quote1">
         The not quite one and only<br> - TheBestPessimist
     </p>
+
+    <div class="buttons-div">
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+           data-text="You are a cunt :^)" data-lang="en" data-dnt="true" data-show-count="false">You are a cunt :^)
+        </a>
+        <button id="button-generate-new-quote" class="button-generate-new-quote1"> Impress me 1</button>
+    </div>
 </div>
 
 
-<script>
-</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!--&lt;!&ndash; bootstrap js &ndash;&gt;-->
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
