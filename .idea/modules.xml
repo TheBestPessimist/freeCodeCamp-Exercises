@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Random Quote Machine/Random Quote Machine.iml" filepath="$PROJECT_DIR$/Random Quote Machine/Random Quote Machine.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Show the Local Weather/Show the Local Weather.iml" filepath="$PROJECT_DIR$/Show the Local Weather/Show the Local Weather.iml" />
       <module fileurl="file://$PROJECT_DIR$/freeCodeCamp -- Intermediate Front End Development Projects.iml" filepath="$PROJECT_DIR$/freeCodeCamp -- Intermediate Front End Development Projects.iml" />
     </modules>
   </component>
