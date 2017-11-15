@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Random Quote Machine/Random Quote Machine.iml" filepath="$PROJECT_DIR$/Random Quote Machine/Random Quote Machine.iml" />
-      <module fileurl="file://$PROJECT_DIR$/freeCodeCamp -- Intermediate Front End Development Projects.iml" filepath="$PROJECT_DIR$/freeCodeCamp -- Intermediate Front End Development Projects.iml" />
-      <module fileurl="file://$PROJECT_DIR$/freeCodeCamp -- Personal Portofolio Webpage.iml" filepath="$PROJECT_DIR$/freeCodeCamp -- Personal Portofolio Webpage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/freeCodeCamp Exercises.iml" filepath="$PROJECT_DIR$/freeCodeCamp Exercises.iml" />
     </modules>
   </component>
 </project>
