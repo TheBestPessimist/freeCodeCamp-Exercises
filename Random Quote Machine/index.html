@@ -9,11 +9,15 @@
     <!--&lt;!&ndash; bootstrap css &ndash;&gt;-->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"-->
     <!--integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
+    <script src="https://use.fontawesome.com/d14698cb22.js"></script>
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Pacifico" rel="stylesheet">
 
 
     <style type="text/css">
         .body-background-color {
             background-color: slateblue;
+            font-family: 'Pacifico', cursive;
         }
 
         .center-div {
@@ -28,7 +32,7 @@
             /*display: inline;*/
 
             /* just for debugging */
-            background-color: #64ba2a;
+            /*background-color: #64ba2a;*/
         }
 
         .quote-center {
@@ -44,11 +48,15 @@
         .author-lower-right {
             color: dimgrey;
             font-size: 2em;
+            font-family: 'Gloria Hallelujah', cursive;
+
             text-align: right;
             font-style: italic;
 
             margin-right: 5%;
             margin-left: 5%;
+
+            padding: 0.4em;
 
             /* just for debugging */
             /*background-color: indianred;*/
@@ -57,12 +65,21 @@
         .buttons-div {
             display: flex;
             justify-content: flex-end;
+            /*background-color: aquamarine;*/
         }
 
-        .button-generate-new-quote1 {
-            /*display: block;*/
-            padding: 0.4em;
-            margin: 1em;
+        .button-generate-new-quote {
+            background-color: slateblue;
+            border-color: dimgray;
+
+            margin: 1em;                /*need empty space around the button*/
+
+            border-radius: 4px;         /*rounded corners*/
+
+        }
+
+        .twitter-button{
+            color:dimgray;
         }
 
     </style>
@@ -79,15 +96,17 @@
         <br>How about some more text which should span on multiple lines?
         <br> what about another line?
     </p>
-    <p id="quote-author" class="author-lower-right button-generate-new-quote1">
-        The not quite one and only<br> - TheBestPessimist
+    <p id="quote-author" class="author-lower-right button-generate-new-quote">
+        The not quite one but only<br> - TheBestPessimist
     </p>
 
     <div class="buttons-div">
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-           data-text="You are a cunt :^)" data-lang="en" data-dnt="true" data-show-count="false">You are a cunt :^)
-        </a>
-        <button id="button-generate-new-quote" class="button-generate-new-quote1"> Impress me 1</button>
+        <a class="twitter-button" href="https://twitter.com/intent/tweet" target="_blank">
+            <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i> </a>
+
+        <button id="button-generate-new-quote" class="button-generate-new-quote">You are a cunt :^)</button>
+
+
     </div>
 </div>
 
