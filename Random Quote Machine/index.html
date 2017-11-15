@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TBP's Random Quote Machine</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--&lt;!&ndash; bootstrap css &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"-->
+    <!--integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
+    <script src="https://use.fontawesome.com/d14698cb22.js"></script>
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Pacifico" rel="stylesheet">
+
+
+    <style type="text/css">
+        .body-background-color {
+            background-color: slateblue;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .center-div {
+            position: absolute; /*still don't understand exactly what this does*/
+            top: 12%; /*move 1/4 of screen lower (i think this means distance to top)*/
+            left: 25%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
+
+            width: 50%; /*size relative to parent element*/
+
+            border-radius: 15px; /*rounded corners babyyyyyy!*/
+
+            /*display: inline;*/
+
+            /* just for debugging */
+            /*background-color: #64ba2a;*/
+        }
+
+        .quote-center {
+            color: khaki;
+            font-size: 2em;
+            text-align: center;
+            /*font-style: italic;*/
+
+            margin-right: 3%;
+            margin-left: 3%;
+        }
+
+        .author-lower-right {
+            color: dimgrey;
+            font-size: 2em;
+            font-family: 'Gloria Hallelujah', cursive;
+
+            text-align: right;
+            font-style: italic;
+
+            margin-right: 5%;
+            margin-left: 5%;
+
+            padding: 0.4em;
+
+            /* just for debugging */
+            /*background-color: indianred;*/
+        }
+
+        .buttons-div {
+            display: flex;
+            justify-content: flex-end;
+            /*background-color: aquamarine;*/
+        }
+
+        .button-generate-new-quote {
+            background-color: slateblue;
+            border-color: dimgray;
+
+            margin: 1em;                /*need empty space around the button*/
+
+            border-radius: 4px;         /*rounded corners*/
+
+        }
+
+        .twitter-button{
+            color:dimgray;
+        }
+
+    </style>
+
+</head>
+<body class="body-background-color">
+
+
+<div class="center-div">
+
+    <p id="quote-text" class="quote-center">
+        Le epic.
+        <br>Quite epic!.
+        <br>How about some more text which should span on multiple lines?
+        <br> what about another line?
+    </p>
+    <p id="quote-author" class="author-lower-right button-generate-new-quote">
+        The not quite one but only<br> - TheBestPessimist
+    </p>
+
+    <div class="buttons-div">
+        <a class="twitter-button" href="https://twitter.com/intent/tweet" target="_blank">
+            <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i> </a>
+
+        <button id="button-generate-new-quote" class="button-generate-new-quote">You are a cunt :^)</button>
+
+
+    </div>
+</div>
+
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<!--&lt;!&ndash; bootstrap js &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"-->
+<!--integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"-->
+<!--crossorigin="anonymous"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"-->
+<!--integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"-->
+<!--crossorigin="anonymous"></script>-->
+
+</body>
+</html>
