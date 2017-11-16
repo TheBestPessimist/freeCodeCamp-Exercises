@@ -22,7 +22,8 @@
 
         .center-div {
             position: absolute; /*still don't understand exactly what this does*/
-            top: 12%; /*move 1/4 of screen lower (i think this means distance to top)*/
+            /*top: 12%; !*move 1/4 of screen lower (i think this means distance to top)*!*/
+            margin-top: auto;
             left: 25%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
 
             width: 50%; /*size relative to parent element*/
@@ -65,21 +66,46 @@
         .buttons-div {
             display: flex;
             justify-content: flex-end;
-            /*background-color: aquamarine;*/
+            background-color: aquamarine;
         }
 
-        .button-generate-new-quote {
-            background-color: slateblue;
-            border-color: dimgray;
+        .generate-new-quote-button {
+            /*font*/
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5em;
+            color: khaki;
+            /*text-align: center;*/
+            /*text-decoration: none;*/
 
-            margin: 1em;                /*need empty space around the button*/
+            margin: 1em; /*need empty space around the button*/
+            border-radius: 9px; /*rounded corners*/
+            background-color: transparent;
+            border: 6px solid dimgray;
 
-            border-radius: 4px;         /*rounded corners*/
+            /*padding: 0.8em;*/
+            /*padding: 12px 16px;*/
 
+            /*for hover*/
+            transition-duration: 0.2s;
         }
 
-        .twitter-button{
-            color:dimgray;
+        .generate-new-quote-button:hover {
+            background-color: dimgray;
+            color: slateblue;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .generate-new-quote-button:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .twitter-button {
+            color: dimgray;
+            margin: 1em; /*need empty space around the button*/
+            /*font-size: 1.5em;*/
+
+
         }
 
     </style>
@@ -96,7 +122,7 @@
         <br>How about some more text which should span on multiple lines?
         <br> what about another line?
     </p>
-    <p id="quote-author" class="author-lower-right button-generate-new-quote">
+    <p id="quote-author" class="author-lower-right">
         The not quite one but only<br> - TheBestPessimist
     </p>
 
@@ -104,14 +130,14 @@
         <a class="twitter-button" href="https://twitter.com/intent/tweet" target="_blank">
             <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i> </a>
 
-        <button id="button-generate-new-quote" class="button-generate-new-quote">You are a cunt :^)</button>
+        <button id="button-generate-new-quote" class="generate-new-quote-button">New quote/You are a cunt :^)</button>
 
 
     </div>
 </div>
 
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
 
 <!--&lt;!&ndash; bootstrap js &ndash;&gt;-->
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
