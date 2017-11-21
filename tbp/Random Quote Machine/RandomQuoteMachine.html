@@ -21,14 +21,13 @@
         }
 
         .center-div {
-            position: absolute; /*still don't understand exactly what this does*/
-            /*top: 12%; !*move 1/4 of screen lower (i think this means distance to top)*!*/
-            margin-top: auto;
-            left: 25%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
+            position: relative; /*still don't understand exactly what this does*/
+            /*margin-top: auto;*/
+            margin-left: 15%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
 
-            width: 50%; /*size relative to parent element*/
+            width: 70%; /*size relative to parent element*/
 
-            border-radius: 15px; /*rounded corners babyyyyyy!*/
+            /*border-radius: 15px; !*rounded corners babyyyyyy!*!*/
 
             /*display: inline;*/
 
@@ -47,7 +46,7 @@
         }
 
         .author-lower-right {
-            color: dimgrey;
+            color: rgb(58, 57, 57);
             font-size: 2em;
             font-family: 'Gloria Hallelujah', cursive;
 
@@ -66,7 +65,11 @@
         .buttons-div {
             display: flex;
             justify-content: flex-end;
-            background-color: aquamarine;
+            /*margin-top: -5%;*/
+            margin-right: 15%;
+            /*margin-left: 20%;*/
+
+            /*background-color: aquamarine;*/
         }
 
         .generate-new-quote-button {
@@ -80,7 +83,7 @@
             margin: 1em; /*need empty space around the button*/
             border-radius: 9px; /*rounded corners*/
             background-color: transparent;
-            border: 6px solid dimgray;
+            border: 6px solid rgb(58, 57, 57);
 
             /*padding: 0.8em;*/
             /*padding: 12px 16px;*/
@@ -90,9 +93,9 @@
         }
 
         .generate-new-quote-button:hover {
-            background-color: dimgray;
+            background-color: rgb(58, 57, 57);
             color: slateblue;
-            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); /*magics from the internets*/
         }
 
         .generate-new-quote-button:active {
@@ -100,19 +103,29 @@
             top: 1px;
         }
 
+        .generate-new-quote-button:focus {
+            outline: 0; /*if not this, when the button is clicked, chrome puts a weird blue border around the button*/
+            /*however i still want to see that the button is selected (via tab for example!)*/
+            /*actually i no longer want that focus, because on mouse click, the button stays focused forever (until mouseclick is done on another part of the page)*/
+            /*check this: https://github.com/angular/material/issues/556*/
+            /*and this: https://twitter.com/patrick_h_lauke/status/530503642399666177*/
+            /*sooo,  right now just screw keyboard users and accessibility!*/
+
+            /*background-color: rgb(58, 57, 57);
+            /*color: slateblue;*/
+            /*box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); !*magics from the internets*!*/
+        }
+
         .twitter-button {
-            color: dimgray;
+            color: rgb(58, 57, 57);
             margin: 1em; /*need empty space around the button*/
-            /*font-size: 1.5em;*/
-
-
+            align-self: center; /*this belongs to the flexbox, but i only want to align the twitter button, and not the rest.*/
         }
 
     </style>
 
 </head>
 <body class="body-background-color">
-
 
 <div class="center-div">
 
@@ -125,19 +138,17 @@
     <p id="quote-author" class="author-lower-right">
         The not quite one but only<br> - TheBestPessimist
     </p>
-
-    <div class="buttons-div">
-        <a class="twitter-button" href="https://twitter.com/intent/tweet" target="_blank">
-            <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i> </a>
-
-        <button id="button-generate-new-quote" class="generate-new-quote-button">New quote/You are a cunt :^)</button>
-
-
-    </div>
 </div>
 
+<div class="buttons-div">
+    <a class="twitter-button" href="https://twitter.com/intent/tweet" target="_blank">
+        <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i> </a>
 
-<!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+    <button id="button-generate-new-quote" class="generate-new-quote-button">New quote/You are a cunt :^)</button>
+
+
+</div>
+
 
 <!--&lt;!&ndash; bootstrap js &ndash;&gt;-->
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
