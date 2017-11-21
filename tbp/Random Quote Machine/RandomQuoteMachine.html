@@ -6,12 +6,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!--&lt;!&ndash; bootstrap css &ndash;&gt;-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"-->
-    <!--integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
     <script src="https://use.fontawesome.com/d14698cb22.js"></script>
-    <!--google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Crafty+Girls|Sacramento|Gloria+Hallelujah|Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Delius+Swash+Caps|Crafty+Girls|Sacramento|Gloria+Hallelujah|Pacifico"
+          rel="stylesheet">
 
 
     <style type="text/css">
@@ -21,18 +18,20 @@
             /*font-family: 'Gloria+Hallelujah', cursive;*/
             /*font-family: 'Crafty Girls', cursive;*/
             font-family: 'Delius Swash Caps', cursive;
+            /*font-family: 'Roboto', cursive;*/
+            font-style: italic;
         }
 
-        .center-div {
+        .quote-div {
             position: relative; /*still don't understand exactly what this does*/
-            margin-top: 10%;
+            margin-top: 7%;
             margin-left: 15%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
 
+            /*display: block;*/
             width: 70%; /*size relative to parent element*/
-
+            /*height: 90%;*/
+            /*min-height: 60%;*/
             /*border-radius: 15px; !*rounded corners babyyyyyy!*!*/
-
-            /*display: inline;*/
 
             /* just for debugging */
             /*background-color: #64ba2a;*/
@@ -40,17 +39,18 @@
 
         .quote-center {
             color: khaki;
-            font-size: 2em;
+            font-size: calc(1vw + 0.5vh + 2vmin);
             text-align: center;
-            /*font-style: italic;*/
 
             margin-right: 3%;
             margin-left: 3%;
+
+            min-height: 7em;
         }
 
         .author-lower-right {
             color: rgb(58, 57, 57);
-            font-size: 2em;
+            font-size: calc(0.8vw + 1vh + 2vmin);
             /*font-family: 'Gloria Hallelujah', cursive;*/
             font-family: 'Pacifico', cursive;
 
@@ -128,10 +128,34 @@
 
     </style>
 
+
+    <script>
+        'use strict';
+        var QuotesNamespace = {};
+
+        function CreateQuote(quote, author) {
+            this.quote = quote;
+            this.author = author;
+        }
+
+        QuotesNamespace.allQuotes = [];
+        QuotesNamespace.allQuotes.push(new CreateQuote("The last of the Goo Balls were... ... ...uh oh... ...there aren't any more Goo Balls. They must have all been sucked away by the pipe system... All the Goo Balls from the entire world!", "—your friend, the Telescope Operator"));
+        QuotesNamespace.allQuotes.push(new CreateQuote("Balancing on the edge of the Big Recycle Bin, the last of the Goo Balls didn't seem to know that they were extremely explosive or that all the mail files in the history of the Information Superhighway were about to be undeleted!", "—your friend, the Virtual Sign Painter"));
+        QuotesNamespace.allQuotes.push(new CreateQuote("Happy New Year! The last of the Goo Balls didn't seem to notice... they were part of an internationally televised World of Goo Corporation Product Launch Event. The color pamphlet they were handing out indicates the product will change the world forever. Shhh...! They are about to reveal World of Goo Corporation's new 'Product Z'...!", "—see you after the show, the Sign Painter"));
+        QuotesNamespace.allQuotes.push(new CreateQuote("The last of the Goo Balls didn't seem to notice they were in some sort of giant Beauty Pageant Machine. Pretty ones over there, Ugly ones over here. Personally, I think everyone is beautiful. Mostly me.", "—the devastating Sign Painter"));
+        QuotesNamespace.allQuotes.push(new CreateQuote("The last of the Goo Balls didn't seem to know that they were extremely delicious or about the nature of the smelly pit in which they found themselves. They said something about this being the last level of the first chapter... whatever that means.", "—the Sign Painter"));
+        QuotesNamespace.allQuotes.push(new CreateQuote("That must be the thing that renders all the graphics. The creative heart of the Information Superhighway. Once it's upgraded, the manual says it will offer 256 stunning colors! But my favorite color will always be green.", "—the Virtual Sign Painter"));
+        QuotesNamespace.allQuotes.push(new CreateQuote("a", "b"));
+        //        QuotesNamespace.allQuotes.push(new CreateQuote("", ""));
+        //        QuotesNamespace.allQuotes.push(new CreateQuote("", ""));
+        //        QuotesNamespace.allQuotes.push(new CreateQuote("", ""));
+    </script>
+
+
 </head>
 <body class="body-background-color">
 
-<div class="center-div">
+<div class="quote-div">
 
     <p id="quote-text" class="quote-center">
         IMPORTANT WARNING:<br>If you edit this file, your computer will probably explode.
@@ -149,16 +173,30 @@
 </div>
 
 
-<!--&lt;!&ndash; bootstrap js &ndash;&gt;-->
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
-<!--integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
-<!--crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"-->
-<!--integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"-->
-<!--crossorigin="anonymous"></script>-->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"-->
-<!--integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"-->
-<!--crossorigin="anonymous"></script>-->
+<script>
+    'use strict';
+    let lastQuoteUsedIndex = 0;
 
+    let newQuoteButton = document.getElementById("button-generate-new-quote");
+    newQuoteButton.addEventListener("click", generateRandomQuote);
+
+    function generateRandomQuote() {
+        let quoteList = QuotesNamespace.allQuotes;
+
+        let quoteTextHtml = document.getElementById("quote-text");
+        let quoteAuthorHtml = document.getElementById("quote-author");
+
+        let nextQuoteIndex = randIntExcept(quoteList.length, lastQuoteUsedIndex);
+        quoteTextHtml.innerHTML = quoteList[nextQuoteIndex].quote;
+        quoteAuthorHtml.innerHTML = quoteList[nextQuoteIndex].author;
+
+        lastQuoteUsedIndex = nextQuoteIndex;
+    }
+
+    function randIntExcept(maxValue, exceptValue) {
+        let number = Math.floor(Math.random() * maxValue);
+        return number === exceptValue ? (number + 1) % maxValue : number;
+    }
+</script>
 </body>
 </html>
