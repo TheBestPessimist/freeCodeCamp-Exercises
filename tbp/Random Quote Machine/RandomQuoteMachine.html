@@ -23,7 +23,6 @@
 
             /*display: block;*/
             width: 70%; /*size relative to parent element*/
-            /*height: 90%;*/
             /*min-height: 60%;*/
             /*border-radius: 15px; !*rounded corners babyyyyyy!*!*/
 
@@ -180,6 +179,7 @@
 <script>
     'use strict';
     let lastQuoteUsedIndex = 0;
+    /*don't show the current quote 2 times in a row*/
 
     let newQuoteButton = document.getElementById("button-generate-new-quote");
     newQuoteButton.addEventListener("click", generateRandomQuote);
@@ -187,19 +187,40 @@
     function generateRandomQuote() {
         let quoteList = QuotesNamespace.allQuotes;
 
-        let quoteTextHtml = document.getElementById("quote-text");
-        let quoteAuthorHtml = document.getElementById("quote-author");
+        let quoteTextElement = document.getElementById("quote-text");
+        let quoteAuthorElement = document.getElementById("quote-author");
 
-        let nextQuoteIndex = randIntExcept(quoteList.length, lastQuoteUsedIndex);
-        quoteTextHtml.innerHTML = quoteList[nextQuoteIndex].quote;
-        quoteAuthorHtml.innerHTML = quoteList[nextQuoteIndex].author;
-
+        let nextQuoteIndex = randIntExceptValue(quoteList.length, lastQuoteUsedIndex);
         lastQuoteUsedIndex = nextQuoteIndex;
+
+        // this is used to dynamically set the font size of the quote text
+        let quoteTextElementClone = quoteTextElement.cloneNode(true);
+        quoteTextElementClone.id = "aClone";
+        quoteTextElementClone.innerHTML = quoteList[nextQuoteIndex].quote;
+        document.body.appendChild(quoteTextElementClone);
+        quoteTextElementClone.style.visibility = "hidden";
+
+        let numberOfLinesInDiv = countNumberOfLines(quoteTextElementClone);             // this piece of shit has sizes 0
+
+
+        // now i have the right font size
+        quoteTextElement.innerHTML = quoteList[nextQuoteIndex].quote;
+        quoteAuthorElement.innerHTML = quoteList[nextQuoteIndex].author;
+
+        quoteAuthorElement += numberOfLinesInDiv;
+
+
     }
 
-    function randIntExcept(maxValue, exceptValue) {
+    function randIntExceptValue(maxValue, exceptValue) {
         let number = Math.floor(Math.random() * maxValue);
         return number === exceptValue ? (number + 1) % maxValue : number;
+    }
+
+    function countNumberOfLines(theElement) {
+        let divHeight = theElement.offsetHeight;
+        let lineHeight = parseInt(window.getComputedStyle(theElement, null).getPropertyValue('font-size')) * 1.2;
+        return divHeight / lineHeight;
     }
 </script>
 </body>
