@@ -6,9 +6,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script src="https://use.fontawesome.com/d14698cb22.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Delius+Swash+Caps|Crafty+Girls|Sacramento|Gloria+Hallelujah|Pacifico"
-          rel="stylesheet">
+    <!--<script src="https://use.fontawesome.com/d14698cb22.js"></script>-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto|Pacifico"-->
+    <!--rel="stylesheet">-->
 
 
     <style type="text/css">
@@ -38,7 +38,7 @@
             margin-right: 3%;
             margin-left: 3%;
 
-            min-height: 7em;
+            height: 7em;
 
             /*font-family: 'Pacifico', cursive;*/
             /*font-family: 'Gloria+Hallelujah', cursive;*/
@@ -194,21 +194,13 @@
         lastQuoteUsedIndex = nextQuoteIndex;
 
         // this is used to dynamically set the font size of the quote text
-        let quoteTextElementClone = quoteTextElement.cloneNode(true);
-        quoteTextElementClone.id = "aClone";
-        quoteTextElementClone.innerHTML = quoteList[nextQuoteIndex].quote;
-        document.body.appendChild(quoteTextElementClone);
-        quoteTextElementClone.style.visibility = "hidden";
-
-        let numberOfLinesInDiv = countNumberOfLines(quoteTextElementClone);             // this piece of shit has sizes 0
-
+        computeNewTextSize(quoteTextElement, quoteList[nextQuoteIndex].quote);
 
         // now i have the right font size
         quoteTextElement.innerHTML = quoteList[nextQuoteIndex].quote;
         quoteAuthorElement.innerHTML = quoteList[nextQuoteIndex].author;
 
-        quoteAuthorElement += numberOfLinesInDiv;
-
+        quoteAuthorElement.innerHTML += window.getComputedStyle(document.getElementById(quoteTextElement.id), null).getPropertyValue('font-size');
 
     }
 
@@ -217,11 +209,35 @@
         return number === exceptValue ? (number + 1) % maxValue : number;
     }
 
-    function countNumberOfLines(theElement) {
-        let divHeight = theElement.offsetHeight;
-        let lineHeight = parseInt(window.getComputedStyle(theElement, null).getPropertyValue('font-size')) * 1.2;
-        return divHeight / lineHeight;
+    function computeNewTextSize(originalElement, theQuote) {
+        let cloneElement = originalElement.cloneNode(true);
+        cloneElement.id = "aClone";
+       // cloneElement.style.visibility = "hidden";
+        document.body.appendChild(cloneElement);           // this element should be at the end of body, so nothing should be moved by it
+        cloneElement.innerHTML = theQuote;
+
+        let originalHeight = parseInt(window.getComputedStyle(originalElement).getPropertyValue('height'));
+         let aa = parseInt(window.getComputedStyle(originalElement).getPropertyValue('outer-height'));
+        let cloneHeight = parseInt(window.getComputedStyle(cloneElement).getPropertyValue('height'));
+
+        while (cloneHeight > originalHeight) {
+            let cloneFontSize = parseInt(window.getComputedStyle(document.getElementById(cloneElement.id), null).getPropertyValue('font-size'));
+            cloneElement.style.fontSize = cloneFontSize - 0.5 + "px";
+            cloneElement.innerHTML = theQuote;
+            break;
+        }
+        originalElement.style.fontSize = window.getComputedStyle(document.getElementById(cloneElement.id), null).getPropertyValue('font-size');
+        originalElement.innerHTML += window.getComputedStyle(document.getElementById(originalElement.id), null).getPropertyValue('font-size') + "|" + window.getComputedStyle(document.getElementById(cloneElement.id), null).getPropertyValue('font-size');
+
+        document.body.removeChild(cloneElement);
     }
+
+
+    //    function countNumberOfLines(theElement) {
+    //        let divHeight = theElement.offsetHeight;
+    //        let lineHeight = parseInt(window.getComputedStyle(theElement, null).getPropertyValue('font-size')) * 1.2;
+    //        return divHeight / lineHeight;
+    //    }
 </script>
 </body>
 </html>
