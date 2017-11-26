@@ -18,13 +18,13 @@
 
 .quote-text {
     color: khaki;
-    font-size: calc(1vw + 0.5vh + 2vmin);
+    font-size: 1.6em;
     text-align: justify;
 
     margin-right: 3%;
     margin-left: 3%;
 
-    height: 7em;
+    min-height: 9em;
 
     /*font-family: 'Pacifico', cursive;*/
     /*font-family: 'Gloria+Hallelujah', cursive;*/
@@ -40,7 +40,7 @@
 
 .quote-author {
     color: rgb(58, 57, 57);
-    font-size: calc(0.8vw + 1vh + 2vmin);
+    font-size: 1.3em;
     /*font-family: 'Gloria Hallelujah', cursive;*/
     font-family: 'Pacifico', cursive;
 
