@@ -1,38 +1,48 @@
 .body-background-color {
     background-color: slateblue;
-    font-family: 'Pacifico', cursive;
 }
 
-.center-div {
-    position: absolute; /*still don't understand exactly what this does*/
-    /*top: 12%; !*move 1/4 of screen lower (i think this means distance to top)*!*/
-    margin-top: auto;
-    left: 25%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
+.quote-div {
+    position: relative; /*still don't understand exactly what this does*/
+    margin-top: 7%;
+    margin-left: 15%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
 
-    width: 50%; /*size relative to parent element*/
-
-    border-radius: 15px; /*rounded corners babyyyyyy!*/
-
-    /*display: inline;*/
+    /*display: block;*/
+    width: 70%; /*size relative to parent element*/
+    /*min-height: 60%;*/
+    /*border-radius: 15px; !*rounded corners babyyyyyy!*!*/
 
     /* just for debugging */
     /*background-color: #64ba2a;*/
 }
 
-.quote-center {
+.quote-text {
     color: khaki;
-    font-size: 2em;
-    text-align: center;
-    /*font-style: italic;*/
+    font-size: calc(1vw + 0.5vh + 2vmin);
+    text-align: justify;
 
     margin-right: 3%;
     margin-left: 3%;
+
+    height: 7em;
+
+    /*font-family: 'Pacifico', cursive;*/
+    /*font-family: 'Gloria+Hallelujah', cursive;*/
+    /*font-family: 'Crafty Girls', cursive;*/
+    /*font-family: 'Delius Swash Caps', cursive;*/
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+
+    padding: 20px;
+
+    box-shadow: -5px 2px 20px 0px rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19) /*magics from the internets*/
 }
 
-.author-lower-right {
-    color: dimgrey;
-    font-size: 2em;
-    font-family: 'Gloria Hallelujah', cursive;
+.quote-author {
+    color: rgb(58, 57, 57);
+    font-size: calc(0.8vw + 1vh + 2vmin);
+    /*font-family: 'Gloria Hallelujah', cursive;*/
+    font-family: 'Pacifico', cursive;
 
     text-align: right;
     font-style: italic;
@@ -40,7 +50,7 @@
     margin-right: 5%;
     margin-left: 5%;
 
-    padding: 0.4em;
+    /*padding: 0.4em;*/
 
     /* just for debugging */
     /*background-color: indianred;*/
@@ -49,21 +59,25 @@
 .buttons-div {
     display: flex;
     justify-content: flex-end;
-    background-color: aquamarine;
+    margin-top: -2%;
+    margin-right: 15%;
+    /*margin-left: 20%;*/
+
+    /*background-color: aquamarine;*/
 }
 
 .generate-new-quote-button {
     /*font*/
     font-family: 'Pacifico', cursive;
     font-size: 1.5em;
-    color: khaki;
+    color: rgb(58, 57, 57);
     /*text-align: center;*/
     /*text-decoration: none;*/
 
     margin: 1em; /*need empty space around the button*/
     border-radius: 9px; /*rounded corners*/
     background-color: transparent;
-    border: 6px solid dimgray;
+    border: 6px solid rgb(58, 57, 57);
 
     /*padding: 0.8em;*/
     /*padding: 12px 16px;*/
@@ -73,9 +87,9 @@
 }
 
 .generate-new-quote-button:hover {
-    background-color: dimgray;
+    background-color: rgb(58, 57, 57);
     color: slateblue;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); /*magics from the internets*/
 }
 
 .generate-new-quote-button:active {
@@ -83,9 +97,22 @@
     top: 1px;
 }
 
-.twitter-button {
-    color: dimgray;
-    margin: 1em; /*need empty space around the button*/
-    /*font-size: 1.5em;*/
+.generate-new-quote-button:focus {
+    outline: 0; /*if not this, when the button is clicked, chrome puts a weird blue border around the button*/
+    /*however i still want to see that the button is selected (via tab for example!)*/
+    /*actually i no longer want that focus, because on mouse click, the button stays focused forever (until mouseclick is done on another part of the page)*/
+    /*check this: https://github.com/angular/material/issues/556*/
+    /*and this: https://twitter.com/patrick_h_lauke/status/530503642399666177*/
+    /*sooo,  right now just screw keyboard users and accessibility!*/
 
+    /*background-color: rgb(58, 57, 57);
+    /*color: slateblue;*/
+    /*box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); !*magics from the internets*!*/
 }
+
+.twitter-button {
+    color: rgb(58, 57, 57);
+    margin: 1em; /*need empty space around the button*/
+    align-self: center; /*this belongs to the flexbox, but i only want to align the twitter button, and not the rest.*/
+}
+
