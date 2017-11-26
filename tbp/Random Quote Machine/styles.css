@@ -1,0 +1,91 @@
+.body-background-color {
+    background-color: slateblue;
+    font-family: 'Pacifico', cursive;
+}
+
+.center-div {
+    position: absolute; /*still don't understand exactly what this does*/
+    /*top: 12%; !*move 1/4 of screen lower (i think this means distance to top)*!*/
+    margin-top: auto;
+    left: 25%; /*move 1/4 of screen to the right (i think this means distance from left margin)*/
+
+    width: 50%; /*size relative to parent element*/
+
+    border-radius: 15px; /*rounded corners babyyyyyy!*/
+
+    /*display: inline;*/
+
+    /* just for debugging */
+    /*background-color: #64ba2a;*/
+}
+
+.quote-center {
+    color: khaki;
+    font-size: 2em;
+    text-align: center;
+    /*font-style: italic;*/
+
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.author-lower-right {
+    color: dimgrey;
+    font-size: 2em;
+    font-family: 'Gloria Hallelujah', cursive;
+
+    text-align: right;
+    font-style: italic;
+
+    margin-right: 5%;
+    margin-left: 5%;
+
+    padding: 0.4em;
+
+    /* just for debugging */
+    /*background-color: indianred;*/
+}
+
+.buttons-div {
+    display: flex;
+    justify-content: flex-end;
+    background-color: aquamarine;
+}
+
+.generate-new-quote-button {
+    /*font*/
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5em;
+    color: khaki;
+    /*text-align: center;*/
+    /*text-decoration: none;*/
+
+    margin: 1em; /*need empty space around the button*/
+    border-radius: 9px; /*rounded corners*/
+    background-color: transparent;
+    border: 6px solid dimgray;
+
+    /*padding: 0.8em;*/
+    /*padding: 12px 16px;*/
+
+    /*for hover*/
+    transition-duration: 0.2s;
+}
+
+.generate-new-quote-button:hover {
+    background-color: dimgray;
+    color: slateblue;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.generate-new-quote-button:active {
+    position: relative;
+    top: 1px;
+}
+
+.twitter-button {
+    color: dimgray;
+    margin: 1em; /*need empty space around the button*/
+    /*font-size: 1.5em;*/
+
+}
