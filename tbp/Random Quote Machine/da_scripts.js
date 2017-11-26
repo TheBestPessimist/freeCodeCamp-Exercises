@@ -1,21 +1,4 @@
 'use strict';
-let QuotesNamespace = {};
-
-function CreateQuote(quote, author) {
-    this.quote = quote;
-    this.author = author;
-}
-
-QuotesNamespace.allQuotes = [];
-QuotesNamespace.allQuotes.push(new CreateQuote("The last of the Goo Balls were...<br> ...<br> ...uh oh...<br> ...there aren't any more Goo Balls.<br> They must have all been sucked away by the pipe system... <br>All the Goo Balls from the entire world!", "—your friend, the Telescope Operator"));
-QuotesNamespace.allQuotes.push(new CreateQuote("Balancing on the edge of the Big Recycle Bin, the last of the Goo Balls didn't seem to know that they were extremely explosive <br>or that all the mail files in the history of the Information Superhighway were about to be undeleted!", "—your friend, the Virtual Sign Painter"));
-QuotesNamespace.allQuotes.push(new CreateQuote("Happy New Year!<br> The last of the Goo Balls didn't seem to notice... <br>they were part of an internationally televised World of Goo Corporation Product Launch Event. <br>The color pamphlet they were handing out indicates the product will change the world forever. <br>Shhh...! <br>They are about to reveal World of Goo Corporation's new 'Product Z'...!", "—see you after the show, the Sign Painter"));
-QuotesNamespace.allQuotes.push(new CreateQuote("The last of the Goo Balls didn't seem to notice they were in some sort of giant Beauty Pageant Machine.<br> Pretty ones over there, Ugly ones over here.<br> Personally, I think everyone is beautiful.<br> Mostly me.", "—the devastating Sign Painter"));
-QuotesNamespace.allQuotes.push(new CreateQuote("The last of the Goo Balls didn't seem to know that they were extremely delicious or about the nature of the smelly pit in which they found themselves.<br> They said something about this being the last level of the first chapter... whatever that means.", "—the Sign Painter"));
-QuotesNamespace.allQuotes.push(new CreateQuote("That must be the thing that renders all the graphics. The creative heart of the Information Superhighway.<br> Once it's upgraded, the manual says it will offer 256 stunning colors! <br>But my favorite color will always be green.", "—the Virtual Sign Painter"));
-//        QuotesNamespace.allQuotes.push(new CreateQuote("", ""));
-//        QuotesNamespace.allQuotes.push(new CreateQuote("", ""));
-//        QuotesNamespace.allQuotes.push(new CreateQuote("", ""));
 
 let lastQuoteUsedIndex = 0;
 /*don't show the current quote 2 times in a row*/
@@ -23,9 +6,24 @@ let lastQuoteUsedIndex = 0;
 let newQuoteButton = document.getElementById("button-generate-new-quote");
 newQuoteButton.addEventListener("click", generateRandomQuote);
 
-function generateRandomQuote() {
-    let quoteList = QuotesNamespace.allQuotes;
+function CreateQuote(quote, author) {
+    this.quote = quote;
+    this.author = author;
+}
 
+let quoteList = [];
+// quoteList.push(new CreateQuote("The last of the Goo Balls were...<br> ...<br> ...uh oh...<br> ...there aren't any more Goo Balls.<br> They must have all been sucked away by the pipe system... <br>All the Goo Balls from the entire world!", "—your friend, the Telescope Operator"));
+// quoteList.push(new CreateQuote("Balancing on the edge of the Big Recycle Bin, the last of the Goo Balls didn't seem to know that they were extremely explosive <br>or that all the mail files in the history of the Information Superhighway were about to be undeleted!", "—your friend, the Virtual Sign Painter"));
+quoteList.push(new CreateQuote("Happy New Year!<br> The last of the Goo Balls didn't seem to notice... <br>they were part of an internationally televised World of Goo Corporation Product Launch Event. <br>The color pamphlet they were handing out indicates the product will change the world forever. <br>Shhh...! <br>They are about to reveal World of Goo Corporation's new 'Product Z'...!", "—see you after the show, the Sign Painter"));
+quoteList.push(new CreateQuote("The last of the Goo Balls didn't seem to notice they were in some sort of giant Beauty Pageant Machine.<br> Pretty ones over there, Ugly ones over here.<br> Personally, I think everyone is beautiful.<br> Mostly me.", "—the devastating Sign Painter"));
+// quoteList.push(new CreateQuote("The last of the Goo Balls didn't seem to know that they were extremely delicious or about the nature of the smelly pit in which they found themselves.<br> They said something about this being the last level of the first chapter... whatever that means.", "—the Sign Painter"));
+// quoteList.push(new CreateQuote("That must be the thing that renders all the graphics. The creative heart of the Information Superhighway.<br> Once it's upgraded, the manual says it will offer 256 stunning colors! <br>But my favorite color will always be green.", "—the Virtual Sign Painter"));
+//        quoteList.push(new CreateQuote("", ""));
+//        quoteList.push(new CreateQuote("", ""));
+//        quoteList.push(new CreateQuote("", ""));
+
+
+function generateRandomQuote() {
     let quoteTextElement = document.getElementById("quote-text");
     let quoteAuthorElement = document.getElementById("quote-author");
 
@@ -70,10 +68,3 @@ function computeNewTextSize(originalElement, theQuote) {
 
     document.body.removeChild(cloneElement);
 }
-
-
-//    function countNumberOfLines(theElement) {
-//        let divHeight = theElement.offsetHeight;
-//        let lineHeight = parseInt(window.getComputedStyle(theElement, null).getPropertyValue('font-size')) * 1.2;
-//        return divHeight / lineHeight;
-//    }
