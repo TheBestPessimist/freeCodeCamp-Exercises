@@ -1,0 +1,57 @@
+body, html {
+    height:90%;
+    /*width:100%;*/
+}
+body {
+    background-color: #1D1F20;
+    color: #F2F2F2;
+}
+
+.grid_container {
+
+    height:90%;
+
+    color: #000000;
+
+    display: grid;
+    /*grid-template: 1fr 20fr / 50fr 50fr;*/
+    /*grid-template: 48% 48% / 48% 48%;*/
+
+
+    grid-template-columns: repeat(2, 1fr);
+    /*grid-template-rows: 300px 400px;*/
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+
+    /*gridauto*/
+
+}
+
+.location {
+    background-color: yellow;
+
+    /*grid-column: 1/1;*/
+    /*grid-row: 1/1;*/
+}
+
+.weather {
+    background-color: mediumpurple;
+
+    /*grid-column: 2/4;*/
+    /*grid-row: 1/1;*/
+}
+
+.google_map {
+    background-color: lightseagreen;
+
+    /*grid-column: 1/1;*/
+    /*grid-row: 2/2;*/
+}
+
+.about {
+    background-color: orangered;
+
+    /*grid-column: 2/2;*/
+    /*grid-row: 2/2;*/
+}
+
