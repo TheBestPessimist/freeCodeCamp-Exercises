@@ -106,9 +106,6 @@ String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
 function displayWeatherInfo(weatherInfoString) {
     let jsonData = JSON.parse(weatherInfoString);
 
-    let a = document.getElementById("1");
-    a.innerHTML = "<br><br>Location data:" + weatherInfoString;
-
     let location = document.getElementById("location");
     location.innerHTML = "Weather in {0}".formatUnicorn(jsonData.name);
     let weather_description = document.getElementById("weather_description");
@@ -127,14 +124,16 @@ function displayWeatherInfo(weatherInfoString) {
 function showTheBloodyGoogleMap() {
     let map = new google.maps.Map(document.getElementById('google_map'), {
         center: {lat: -34.397, lng: 150.644},
-        zoom: 13
+        zoom: 1,
     });
+    map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 
     navigator.geolocation.getCurrentPosition(function (position) {
         let pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
         };
-        map.setCenter(pos);
+        map.panTo(pos);
+        map.setZoom(12);
     });
 }
