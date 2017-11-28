@@ -1,7 +1,8 @@
 body, html {
-    height:90%;
+    height: 90%;
     /*width:100%;*/
 }
+
 body {
     background-color: #1D1F20;
     color: #F2F2F2;
@@ -9,49 +10,47 @@ body {
 
 .grid_container {
 
-    height:90%;
+    /*height:90%;*/
 
-    color: #000000;
+    /*color: #000000;*/
 
     display: grid;
-    /*grid-template: 1fr 20fr / 50fr 50fr;*/
-    /*grid-template: 48% 48% / 48% 48%;*/
 
-
-    grid-template-columns: repeat(2, 1fr);
-    /*grid-template-rows: 300px 400px;*/
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 20px;
 
-    /*gridauto*/
+    font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
 
 }
 
 .location {
-    background-color: yellow;
+    /*background-color: yellow;*/
 
-    /*grid-column: 1/1;*/
-    /*grid-row: 1/1;*/
+    text-align: center;
 }
 
 .weather {
-    background-color: mediumpurple;
+    /*background-color: mediumpurple;*/
 
-    /*grid-column: 2/4;*/
-    /*grid-row: 1/1;*/
+    text-align: center;
 }
 
 .google_map {
-    background-color: lightseagreen;
+    /*background-color: lightseagreen;*/
 
-    /*grid-column: 1/1;*/
-    /*grid-row: 2/2;*/
+    text-align: center;
+
+    height: 300px;
 }
 
 .about {
-    background-color: orangered;
+    /*background-color: orangered;*/
 
-    /*grid-column: 2/2;*/
-    /*grid-row: 2/2;*/
+    text-align: center;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}

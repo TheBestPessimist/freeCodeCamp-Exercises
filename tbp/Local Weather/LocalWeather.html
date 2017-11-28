@@ -5,20 +5,37 @@
     <title>The Weather Around Your Place</title>
 
     <link href="localWeather.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
 <body>
 
 <div class="grid_container">
-    <div class="location"> location</div>
-    <div class="weather">weather</div>
-    <div class="google_map">google</div>
-    <div class="about">TheBestPessimist</div>
+    <div class="location">
+        <h2 id="location"></h2>
+        <p id="weather_description" class="capitalize"></p>
+    </div>
+    <div class="weather">
+        <p id="temperature"></p>
+        <p>
+            <span id="sunrise"></span>
+            <span id="sunset"></span>
+        </p>
+    </div>
+    <div id="google_map" class="google_map"></div>
+
+
+    <div class="about">
+        <p>Created with lots of googling and tea by</p>
+        <p>TheBestPessimst</p>
+    </div>
 </div>
 
 <p id="1"></p>
 
 
 <script src="localWeather.js"></script>
+<script async defer
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCr6zaM4mZLM0x_NWbFn0PGiQ_ObgU03MQ&callback=showTheBloodyGoogleMap"></script>
 </body>
 </html>

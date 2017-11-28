@@ -5,13 +5,22 @@ let locationAcquireOptions = {
     timeout: 5 * 1000,              // 5 seconds?
 };
 
-navigator.geolocation.watchPosition(locationAcquireSuccess, locationAcquireError, locationAcquireOptions);
+// navigator.geolocation.watchPosition(locationAcquireSuccess, locationAcquireError, locationAcquireOptions);
+navigator.geolocation.getCurrentPosition(locationAcquireSuccess, locationAcquireError, locationAcquireOptions);
+
+const degree_fahrenheit = "\u2109";
+const degree_celsius = "\u2103";
 
 function locationAcquireSuccess(position) {
     let WeatherProviderURL = "https://fcc-weather-api.glitch.me/api/current?lat={lat}&lon={lon}";
     let client = new HttpClient();
     client.get(WeatherProviderURL.formatUnicorn({lat: position.coords.latitude, lon: position.coords.longitude}),
         displayWeatherInfo);
+
+    // google gives me timisoara in some weird way, i must iterate over it and get the "locality". fcc gives me some stupid location.
+    // let gString = "https://maps.googleapis.com/maps/api/geocode/json?latlng={lat},{lon}&sensor=true";
+    // client.get(gString.formatUnicorn({lat: position.coords.latitude, lon: position.coords.longitude}),
+    //     displayWeatherInfo);
 
     // let date = new Date(position.timestamp);
     // let a = document.getElementById("1");
@@ -64,7 +73,6 @@ function HttpClient() {
 }
 
 
-
 /**
  * Allows me to format strings nicely.
  * Examples:
@@ -96,6 +104,37 @@ String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
     };
 
 function displayWeatherInfo(weatherInfoString) {
+    let jsonData = JSON.parse(weatherInfoString);
+
     let a = document.getElementById("1");
-    a.innerHTML = "Location data:" + weatherInfoString;
+    a.innerHTML = "<br><br>Location data:" + weatherInfoString;
+
+    let location = document.getElementById("location");
+    location.innerHTML = "Weather in {0}".formatUnicorn(jsonData.name);
+    let weather_description = document.getElementById("weather_description");
+    weather_description.innerHTML = jsonData.weather[0].description;
+
+
+    let temperature = document.getElementById("temperature");
+    temperature.innerHTML = "Temperature: {0}{1}".formatUnicorn(jsonData.main.temp, degree_celsius);
+    let sunrise = document.getElementById("sunrise");
+    sunrise.innerHTML = "Sunrise: {0}".formatUnicorn(new Date(jsonData.sys.sunrise * 1000).toLocaleTimeString());     // *1000 because i need millis, not epoch!
+    let sunset = document.getElementById("sunset");
+    sunset.innerHTML = "Sunset: {0}".formatUnicorn(new Date(jsonData.sys.sunset * 1000).toLocaleTimeString());
+
+}
+
+function showTheBloodyGoogleMap() {
+    let map = new google.maps.Map(document.getElementById('google_map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 13
+    });
+
+    navigator.geolocation.getCurrentPosition(function (position) {
+        let pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+        map.setCenter(pos);
+    });
 }
