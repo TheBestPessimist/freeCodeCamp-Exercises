@@ -119,6 +119,8 @@ function displayWeatherInfo(weatherInfoString) {
     let sunset = document.getElementById("sunset");
     sunset.innerHTML = "Sunset: {0}".formatUnicorn(new Date(jsonData.sys.sunset * 1000).toLocaleTimeString());
 
+    let about = document.getElementsByClassName("about")[0];
+    about.style.visibility = "visible";
 }
 
 function showTheBloodyGoogleMap() {

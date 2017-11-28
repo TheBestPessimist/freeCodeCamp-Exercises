@@ -17,7 +17,7 @@ body {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 20px;
 
     font-size: 1.3em;
@@ -26,29 +26,33 @@ body {
 }
 
 .location {
-    /*background-color: yellow;*/
+    grid-column: 1/4;
+    grid-row: 1/1;
 
     text-align: center;
 }
 
 .weather {
-    /*background-color: mediumpurple;*/
+    grid-column: 1/1;
+    grid-row: 2/4;
 
     text-align: center;
 }
 
 .google_map {
-    /*background-color: lightseagreen;*/
+    grid-column: 2/3;
+    grid-row: 2/4;
 
     text-align: center;
 
-    height: 300px;
+    height: 400px;
 }
 
 .about {
-    /*background-color: orangered;*/
-
+    grid-column: 3/4;
+    grid-row: 2/4;
     text-align: center;
+    visibility: hidden;
 }
 
 .capitalize {
