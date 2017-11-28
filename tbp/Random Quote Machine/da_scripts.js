@@ -56,7 +56,7 @@ function computeNewTextSize(originalElement, theQuote) {
     }
     let cloneElement = originalElement.cloneNode(true);
     cloneElement.id = "aClone";
-    // cloneElement.style.visibility = "hidden";
+    cloneElement.style.visibility = "hidden";
     originalElement.parentNode.appendChild(cloneElement);
     cloneElement.style.fontSize = initialQuoteTextFontSize + "px";
     cloneElement.innerHTML = theQuote;
