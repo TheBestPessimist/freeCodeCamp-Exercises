@@ -1,8 +1,5 @@
 'use strict';
 
-const ENDPOINT = "https://en.wikipedia.org/w/api.php";
-
-
 /**
  * From stackoverflow
  *
@@ -20,7 +17,6 @@ function HttpClient() {
         theHttpRequest.send(null);
     }
 }
-
 
 /**
  * Allows me to format strings nicely.
@@ -53,6 +49,10 @@ String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
     };
 
 
+/**
+ * Format the parameters in a URL-like format
+ *
+ */
 function formatParams(params) {
     return "?" + Object
         .keys(params)
@@ -62,6 +62,10 @@ function formatParams(params) {
         .join("&")
 }
 
+function prepareSearchLink(searchTerm) {
+    getParams["srsearch"] = searchTerm;
+    return ENDPOINT + formatParams(getParams);
+}
 
 //
 //
@@ -77,19 +81,31 @@ function formatParams(params) {
 //
 //
 //
+const ENDPOINT = "https://en.wikipedia.org/w/api.php";
+
+let searchTerm = "Dakhabrakha";
+
+
+let getParams = {
+    action: "query",
+    list: 'search',
+    srsearch: 'The Unix Haters Handbook',
+    format: 'json',
+    formatversion: 2,
+    origin: '*',
+};
+
 let client = new HttpClient();
-
-
-let action = "query&format=json&prop=revisions&titles=Main%20Page&rvprop=content";
-let finish = "&origin=*"
-
-client.get(ENDPOINT + "?" + action + finish,
+client.get(prepareSearchLink(searchTerm),
     showOutput
 );
 
+
 function showOutput(someOutput) {
-    let q = document.getElementById("q")
-    q.innerHTML = someOutput;
+    let json = JSON.parse(someOutput);
+    json = JSON.stringify(json, null, 4);
+
+    let q = document.getElementById("q");
+    q.innerHTML = json;
 
 }
-
