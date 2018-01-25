@@ -62,8 +62,32 @@ function formatParams(params) {
         .join("&")
 }
 
-function prepareSearchLink(searchTerm) {
+function prepareUserSearchLink(searchTerm) {
+    let getParams = {
+        format: 'json',
+        utf8: 1,
+        action: "query",
+        list: 'search',
+        srsearch: 'The Unix Haters Handbook',
+        formatversion: 1,
+        origin: '*',
+    };
     getParams["srsearch"] = searchTerm;
+    return ENDPOINT + formatParams(getParams);
+}
+
+function handleUserSelection(userSelection) {
+    let getParams = {
+        action: "query",
+        format: "json",
+        origin: "*",
+        prop: "info",
+        pageids: "",
+        redirects: 1,
+        utf8: 1,
+        inprop: "url"
+    };
+    getParams["pageids"] = userSelection;
     return ENDPOINT + formatParams(getParams);
 }
 
@@ -83,29 +107,82 @@ function prepareSearchLink(searchTerm) {
 //
 const ENDPOINT = "https://en.wikipedia.org/w/api.php";
 
-let searchTerm = "Dakhabrakha";
 
-
-let getParams = {
-    action: "query",
-    list: 'search',
-    srsearch: 'The Unix Haters Handbook',
-    format: 'json',
-    formatversion: 2,
-    origin: '*',
+window.onload = function () {
+    document.querySelector("#search").addEventListener("submit", searchTerm);
 };
 
-let client = new HttpClient();
-client.get(prepareSearchLink(searchTerm),
-    showOutput
-);
 
+function searchTerm(e) {
+    e.preventDefault();
+    let searchTerm = this[0].value;
+
+    let client = new HttpClient();
+    client.get(prepareUserSearchLink(searchTerm), showOutput);
+}
 
 function showOutput(someOutput) {
-    let json = JSON.parse(someOutput);
-    json = JSON.stringify(json, null, 4);
+    // let q = document.getElementById("query-response");
+    // if (q == null) {
+    //     q = document.createElement("pre");
+    //     q.id = "query-response";
+    //     document.body.appendChild(q);
+    // }
 
-    let q = document.getElementById("q");
-    q.innerHTML = json;
+    let searchResults = document.getElementById("search-results");
+    // remove already existing search results
+    while (searchResults.firstChild) {
+        searchResults.removeChild(searchResults.firstChild);
+    }
 
+    let jsonSearchResults = JSON.parse(someOutput)["query"]["search"];
+    for (let json in jsonSearchResults) {
+        let e = divCreator(jsonSearchResults[json]);
+        searchResults.appendChild(e);
+    }
+
+}
+
+function divCreator(json) {
+    let title = json["title"];
+    let description = json["snippet"];
+
+    let div = document.createElement("div");
+    addOnClickHandlerToSearchResult(div);
+    div.classList.add("search-result");
+    let pTitle = document.createElement("p");
+    pTitle.classList.add("search-result__title");
+    let pDescription = document.createElement("p");
+    pDescription.classList.add("search-result__description");
+
+    div.appendChild(pTitle);
+    div.appendChild(pDescription);
+    pTitle.innerHTML = title;
+    pDescription.innerHTML = description;
+    return div;
+}
+
+//
+//
+// window.onclick = e => {
+//     console.log(e.target);
+//     console.log(e.target.tagName);
+// };
+//
+// window.onclick = e => {
+//     console.log(e.target.innerText);
+// };
+//
+//
+
+function addOnClickHandlerToSearchResult(div) {
+    div.addEventListener("click", handleSearchResultOnClick);
+}
+
+function handleSearchResultOnClick(e) {
+    let div = e.target;
+    while (!div.classList.contains("search-result")) {
+        div = div.parentNode;
+    }
+    alert(div.innerText);
 }

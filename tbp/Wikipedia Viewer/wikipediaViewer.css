@@ -1,0 +1,16 @@
+.body-background-color {
+    background-color: slateblue;
+}
+
+.search-result {
+    background-color: brown;
+}
+
+.search-result__title {
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+.search-result__description {
+    font-style: italic;
+}
