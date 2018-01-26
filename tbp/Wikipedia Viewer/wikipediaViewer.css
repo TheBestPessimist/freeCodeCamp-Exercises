@@ -21,17 +21,17 @@
     color: rgba(106, 90, 205, 0.2);
     font-family: 'VT323', monospace;
 
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0 0 5px;
 
     transition: background-color, color;
-    transition-delay: 0.65s;
+    transition-delay: 0.15s;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
 }
 
 .fcc-task-details:hover {
     transition: background-color, color;
-    transition-delay: 0.65s;
+    transition-delay: 0.15s;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
 
