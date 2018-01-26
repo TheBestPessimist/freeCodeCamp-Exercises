@@ -121,6 +121,10 @@ function searchTerm(e) {
     e.preventDefault();
     let searchTerm = this[0].value;
 
+    if (searchTerm !== undefined && searchTerm !== null) {
+        return;
+    }
+
     let client = new HttpClient();
     client.get(prepareUserSearchLink(searchTerm), showOutput);
 }
