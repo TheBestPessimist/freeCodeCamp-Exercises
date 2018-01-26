@@ -2,15 +2,24 @@
     background-color: slateblue;
 }
 
-.search-result {
+.search-form {
+    display: flex;              /* so that i can use the horizontal centering */
+    justify-content: center;    /* center horizontally */
+}
+
+.js-search-result {
     background-color: brown;
 }
 
-.search-result__title {
+.js-search-result__title {
     font-weight: bold;
     font-size: 1.6em;
 }
 
-.search-result__description {
+.js-search-result__description {
     font-style: italic;
+}
+
+.js-search-result__hidden-metadata {
+    display: none;
 }
