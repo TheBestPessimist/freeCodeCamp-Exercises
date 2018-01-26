@@ -76,7 +76,7 @@ function prepareUserSearchLink(searchTerm) {
     return ENDPOINT + formatParams(getParams);
 }
 
-function handleUserSelection(userSelection) {
+function prepareUserSelectionLink(userSelection) {
     let getParams = {
         action: "query",
         format: "json",
@@ -89,6 +89,10 @@ function handleUserSelection(userSelection) {
     };
     getParams["pageids"] = userSelection;
     return ENDPOINT + formatParams(getParams);
+}
+
+function logJSONObject(obj) {
+    console.log(JSON.stringify(obj, null, 4));
 }
 
 //
@@ -122,13 +126,6 @@ function searchTerm(e) {
 }
 
 function showOutput(someOutput) {
-    // let q = document.getElementById("query-response");
-    // if (q == null) {
-    //     q = document.createElement("pre");
-    //     q.id = "query-response";
-    //     document.body.appendChild(q);
-    // }
-
     let searchResults = document.getElementById("search-results");
     // remove already existing search results
     while (searchResults.firstChild) {
@@ -146,43 +143,53 @@ function showOutput(someOutput) {
 function divCreator(json) {
     let title = json["title"];
     let description = json["snippet"];
+    let pageId = json["pageid"];
 
     let div = document.createElement("div");
     addOnClickHandlerToSearchResult(div);
-    div.classList.add("search-result");
-    let pTitle = document.createElement("p");
-    pTitle.classList.add("search-result__title");
-    let pDescription = document.createElement("p");
-    pDescription.classList.add("search-result__description");
+    div.classList.add("js-search-result");
 
-    div.appendChild(pTitle);
-    div.appendChild(pDescription);
+    let pTitle = document.createElement("p");
+    pTitle.classList.add("js-search-result__title");
     pTitle.innerHTML = title;
+    div.appendChild(pTitle);
+
+    let pDescription = document.createElement("p");
+    pDescription.classList.add("js-search-result__description");
     pDescription.innerHTML = description;
+    div.appendChild(pDescription);
+
+    let pPageId = document.createElement("p");
+    pPageId.classList.add("js-search-result__hidden-metadata");
+    pPageId.innerHTML = pageId;
+    div.appendChild(pPageId);
+
     return div;
 }
-
-//
-//
-// window.onclick = e => {
-//     console.log(e.target);
-//     console.log(e.target.tagName);
-// };
-//
-// window.onclick = e => {
-//     console.log(e.target.innerText);
-// };
-//
-//
 
 function addOnClickHandlerToSearchResult(div) {
     div.addEventListener("click", handleSearchResultOnClick);
 }
 
-function handleSearchResultOnClick(e) {
-    let div = e.target;
-    while (!div.classList.contains("search-result")) {
+function handleSearchResultOnClick(event) {
+    let div = event.target;
+    while (!div.classList.contains("js-search-result")) {
         div = div.parentNode;
     }
-    alert(div.innerText);
+
+    let pageId = div.querySelector(".js-search-result__hidden-metadata").textContent;
+
+    let client = new HttpClient();
+    client.get(prepareUserSelectionLink(pageId), openWikipediaInNewTab);
+
 }
+
+function openWikipediaInNewTab(response) {
+    let json = JSON.parse(response);
+    let pageId = Object.keys(json["query"]["pages"])[0];
+    let url = json["query"]["pages"][pageId]["fullurl"];
+
+    window.open(url, "_blank");
+}
+
+// https://stackoverflow.com/questions/23667086/why-is-my-variable-unaltered-after-i-modify-it-inside-of-a-function-asynchron
