@@ -3,8 +3,41 @@
 }
 
 .search-form {
-    display: flex;              /* so that i can use the horizontal centering */
-    justify-content: center;    /* center horizontally */
+    display: flex; /* so that i can use the horizontal centering */
+    justify-content: center; /* center horizontally */
+}
+
+.fcc-task-details {
+    position: fixed;
+    bottom: 0em;
+    right: 0em;
+
+    /*background-color: rgba(216, 191, 216, 0.5);*/
+    background-color: rgba(0, 0, 0, 0.2);
+
+    width: 20em;
+
+    text-align: center;
+    color: rgba(106, 90, 205, 0.2);
+    font-family: 'VT323', monospace;
+
+    border-radius: 5px 0px 0px 5px;
+
+    transition: background-color, color;
+    transition-delay: 0.65s;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.fcc-task-details:hover {
+    transition: background-color, color;
+    transition-delay: 0.65s;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(106, 90, 205, 1);
+
 }
 
 .js-search-result {
