@@ -114,6 +114,7 @@ const ENDPOINT = "https://en.wikipedia.org/w/api.php";
 
 window.onload = function () {
     document.querySelector("#search").addEventListener("submit", searchTerm);
+    document.getElementById("random-button").addEventListener("click", openRandomPage)
 };
 
 
@@ -197,3 +198,8 @@ function openWikipediaInNewTab(response) {
 }
 
 // https://stackoverflow.com/questions/23667086/why-is-my-variable-unaltered-after-i-modify-it-inside-of-a-function-asynchron
+
+function openRandomPage() {
+    const randomPageLink = "https://en.wikipedia.org/wiki/Special:Random";
+    window.open(randomPageLink, "_blank");
+}
