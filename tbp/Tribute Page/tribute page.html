@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TheBestPessimist's Javascript Tribute Page m9</title>
+</head>
+<body>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+
+<div id="main">
+    <div class="page-header text-center">
+        <h2>Javascript is hell</h2>
+    </div>
+    <p>This is few of the things <emph>TheBestPessimist</emph> finds rather weird about javascript</p>
+
+    <hr>
+
+    <img class="img-fluid"
+         src="https://image.slidesharecdn.com/thecaseforreact-140503171909-phpapp02/95/the-case-for-reactjs-and-clojurescript-57-638.jpg?cb=1399140091"
+         title="i think javascript really is a mess" alt="i think javascript is a mess" width="70%"/>
+
+
+    <hr>
+
+    <dl class="row">
+        <dt class="col-sm-3">== !== ===</dt>
+        <dd class="col-sm-9">Oh, well, this is just helpful, isn't it? I can have equality, but actually i don't have it, because everything
+            is of a different type.
+        </dd>
+
+
+        <dt class="col-sm-3">There is no zero (0)
+        </dd>
+        <dd class="col-sm-8">so there is this:<br>
+            <pre class="prettyprint" style="border: none !important">
+var a = 0 * -1;
+var b = 0 * 1;
+1/b === 1/a /// shouldnt here be !== ????
+            </pre>
+        </dd>
+
+
+        <dt class="col-sm-3"> Where's the bloody local scoping?</dt>
+        <dd class="col-sm-9"> so i can do this: </br>
+            <pre class="prettyprint" style="border: none !important">
+for(var i = 0; i<10; i++){
+    console.log(i);
+}
+console.log("there still is an i here although i am in a different code block. >>>>i = " + i + "<<<<<");
+            </pre>
+        </dd>
+
+
+        <dt class="col-sm-3"> What's the deal with <pre>null</pre> and <pre>undefined</pre>??</dt>
+        <dd class="col-sm-9"> it seems that checking if a string is empty should be done like so:<br>
+            <pre class="prettyprint" style="border: none !important">
+var theString; // let's assume that i get some random string
+
+// in order to use the bloody string, i have to check if it exists and/or is empty<br>
+if(theString !== null && theString !== undefined && theString.length > 0 ) // because generally one shouldn't check for
+equality, but for size difference
+            </pre>
+        </dd>
+
+
+        <dt class="col-sm-3"> why can't i put my bloody brackets wherever i want? <b><i>REALLYYYYY??!?!?</i></b></dt>
+        <dd class="col-sm-9">
+            returning this:<br/>
+            <pre class="prettyprint" style="border: none !important">
+return
+{
+    a: "hello"
+};
+            </pre>
+            of course is not the same as returning this: <br>
+            <pre class="prettyprint " style="border: none !important">
+return {
+   a: "hello"
+};
+            </pre>
+        </dd>
+
+    </dl>
+    <hr>
+    <hr>
+    <p>Seriously now JavaScript, what the actual fuck with the last one?</p>
+
+    <p>All these beautiful examples, along with some other, maybe even
+        <emph> dumber</emph>
+        are to be found at <a href="https://www.codeproject.com/articles/182416/a-collection-of-javascript-gotchas" target="_blank">this</a> beautiful
+        location.
+    </p>
+
+    <p style="font-size: 8px"> Yet it seems I still want to learn this awful language.</p>
+
+</div>
+
+</body>
+</html>
