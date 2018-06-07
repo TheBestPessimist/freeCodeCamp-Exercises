@@ -1,0 +1,33 @@
+#main {
+    width: 50%;
+    /*margin: auto;*/
+}
+
+.flex-center{
+    /*
+    as per here:
+    https://forum.freecodecamp.org/t/why-flex-align-items-center-hides-all-my-dd-items/197776/7
+    please make me understand why flexbox align-items: center can't center all my stuff?
+    */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#img-div{
+    text-align: center;
+}
+
+#image {
+    max-width: 100%;
+}
+
+
+.pre prettyprint {
+    border: none;
+}
+
+#the-end {
+    font-size: 8px;
+}
+

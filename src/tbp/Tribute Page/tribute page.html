@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="src/tbp/Tribute Page/tribute page.css"/>
     <meta charset="UTF-8">
     <title>TheBestPessimist's Javascript Tribute Page m9</title>
 </head>
 <body>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
 
-<div id="main">
-    <div class="page-header text-center">
-        <h2>Javascript is hell</h2>
+<main id="main" class="flex-center">
+    <div id="title" class="page-header text-center">
+        <h2>Javascript is damn stupid</h2>
     </div>
-    <p>This is few of the things <emph>TheBestPessimist</emph> finds rather weird about javascript</p>
+
+    <p id="tribute-info">This is few of the things
+        <em>TheBestPessimist</em>
+        finds rather weird about javascript
+    </p>
 
     <hr>
 
-    <img class="img-fluid"
-         src="https://image.slidesharecdn.com/thecaseforreact-140503171909-phpapp02/95/the-case-for-reactjs-and-clojurescript-57-638.jpg?cb=1399140091"
-         title="i think javascript really is a mess" alt="i think javascript is a mess" width="70%"/>
+    <div id="img-div">
+        <img id="image"
+             src="https://image.slidesharecdn.com/thecaseforreact-140503171909-phpapp02/95/the-case-for-reactjs-and-clojurescript-57-638.jpg?cb=1399140091"
+             title="i think javascript really is a mess" alt="i think javascript is a mess" width="70%"/>
+        <div id="img-caption">I think javascript really is a mess</div>
+    </div>
 
 
     <hr>
 
     <dl class="row">
         <dt class="col-sm-3">== !== ===</dt>
-        <dd class="col-sm-9">Oh, well, this is just helpful, isn't it? I can have equality, but actually i don't have it, because everything
+        <dd class="col-sm-9">Oh, well, this is just helpful, isn't it? I can have equality, but actually i don't have
+            it, because everything
             is of a different type.
         </dd>
 
 
-        <dt class="col-sm-3">There is no zero (0)
-        </dd>
+        <dt class="col-sm-3">There is no zero (0)</dt>
         <dd class="col-sm-8">so there is this:<br>
-            <pre class="prettyprint" style="border: none !important">
+            <pre class="prettyprint">
 var a = 0 * -1;
 var b = 0 * 1;
 1/b === 1/a /// shouldnt here be !== ????
@@ -43,8 +56,8 @@ var b = 0 * 1;
 
 
         <dt class="col-sm-3"> Where's the bloody local scoping?</dt>
-        <dd class="col-sm-9"> so i can do this: </br>
-            <pre class="prettyprint" style="border: none !important">
+        <dd class="col-sm-9"> so i can do this: <br>
+            <pre class="prettyprint">
 for(var i = 0; i<10; i++){
     console.log(i);
 }
@@ -53,9 +66,14 @@ console.log("there still is an i here although i am in a different code block. >
         </dd>
 
 
-        <dt class="col-sm-3"> What's the deal with <pre>null</pre> and <pre>undefined</pre>??</dt>
+        <dt class="col-sm-3"> What's the deal with
+            <pre>null</pre>
+            and
+            <pre>undefined</pre>
+            ??
+        </dt>
         <dd class="col-sm-9"> it seems that checking if a string is empty should be done like so:<br>
-            <pre class="prettyprint" style="border: none !important">
+            <pre class="prettyprint">
 var theString; // let's assume that i get some random string
 
 // in order to use the bloody string, i have to check if it exists and/or is empty<br>
@@ -68,14 +86,14 @@ equality, but for size difference
         <dt class="col-sm-3"> why can't i put my bloody brackets wherever i want? <b><i>REALLYYYYY??!?!?</i></b></dt>
         <dd class="col-sm-9">
             returning this:<br/>
-            <pre class="prettyprint" style="border: none !important">
+            <pre class="prettyprint">
 return
 {
     a: "hello"
 };
             </pre>
             of course is not the same as returning this: <br>
-            <pre class="prettyprint " style="border: none !important">
+            <pre class="prettyprint">
 return {
    a: "hello"
 };
@@ -88,14 +106,16 @@ return {
     <p>Seriously now JavaScript, what the actual fuck with the last one?</p>
 
     <p>All these beautiful examples, along with some other, maybe even
-        <emph> dumber</emph>
-        are to be found at <a href="https://www.codeproject.com/articles/182416/a-collection-of-javascript-gotchas" target="_blank">this</a> beautiful
-        location.
+        <em> dumber</em> are to be found at
+        <a id="tribute-link"
+           href="https://www.codeproject.com/articles/182416/a-collection-of-javascript-gotchas"
+           target="_blank">this</a>
+        beautiful location.
     </p>
 
-    <p style="font-size: 8px"> Yet it seems I still want to learn this awful language.</p>
+    <p id="the-end"> Yet it seems I still want to learn this awful language.</p>
 
-</div>
+</main>
 
 </body>
 </html>
