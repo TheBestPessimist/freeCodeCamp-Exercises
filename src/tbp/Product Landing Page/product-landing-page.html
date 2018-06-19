@@ -42,5 +42,27 @@ palindrome, of course!)
 
 
 <script async src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+
+<!--<select name="Test Suite Selector" id="test-suite-selector" onchange="FCC_Global.selectProject('product-landing-page')">-->
+<!--</select>-->
+
+<script>
+    "use strict";
+
+    const setCorrectFCCTest = function () {
+        const currentTest = "product-landing-page";
+
+        // noinspection JSValidateTypes
+        const /*HTMLSelectElement*/ testSuite = document.getElementById("test-suite-selector");
+        testSuite.value = currentTest;
+
+        FCC_Global.selectProject(currentTest);
+    };
+
+    window.onload = setCorrectFCCTest;
+</script>
+
+
 </body>
 </html>
