@@ -1,0 +1,14 @@
+body {
+    background: rgb(40, 21, 48) !important;
+    color: #a0adba;
+    position: relative;
+}
+
+.dynamically-positioned-anchor {
+    /*this one's modified in the method computeDynamicPaddingForAnchor()*/
+    padding-top: 0px;
+}
+
+.main-div {
+    padding-left: 10px;
+}
