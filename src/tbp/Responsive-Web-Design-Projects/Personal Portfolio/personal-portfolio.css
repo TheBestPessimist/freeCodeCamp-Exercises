@@ -1,7 +1,7 @@
 body {
     background: rgb(40, 21, 48) !important;
-    color: #a0adba;
-    position: relative;
+    color:      #a0adba;
+    position:   relative;
 }
 
 .dynamically-positioned-anchor {
@@ -10,5 +10,6 @@ body {
 }
 
 .main-div {
-    padding-left: 10px;
+    border-radius: 4px;
+    padding:       10px 0 10px 10px;
 }

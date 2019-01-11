@@ -26,27 +26,21 @@
 
 <div id="top-nav-and-progress" class="sticky-top">
     <div class="progress">
-        <div id="top-progress-bar"
-             class="progress-bar"
-             role="progressbar"
-             style="width: 0px; height: 2px"
-             aria-valuenow="0"
-             aria-valuemin="0"
-             aria-valuemax="100">
+        <div id="top-progress-bar" class="progress-bar" role="progressbar" style="width: 0px; height: 2px"
+             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
         </div>
     </div>
 
     <!--
-        - navbar-toggleable-sm: this makes the navbar entries align horizontally
-        - DO USE flex-sm-row to make the items stay as a row when zooming in a lot, otherwise they will quickly become
-            stacked at different than default zoom levels.
-    -->
-    <nav id="main-navbar"
-         class="navbar navbar-toggleable-sm bg-inverse text-white flex-sm-row justify-content-end">
+          - navbar-toggleable-sm: this makes the navbar entries align horizontally
+          - DO USE flex-sm-row to make the items stay as a row when zooming in a lot, otherwise they will quickly become
+              stacked at different than default zoom levels.
+      -->
+    <nav id="main-navbar" class="navbar navbar-toggleable-sm bg-inverse text-white flex-sm-row justify-content-end">
 
         <a class="navbar-brand navbar-text mr-auto">About The Pessimist</a>
 
-        <a class="nav-link mx-auto scroll-animated" href="#piu"><b>Piu!</b></a>
+        <!--         <a class="nav-link mx-auto scroll-animated" href="#piu"><b>Piu!</b></a> -->
 
         <a class="nav-link scroll-animated" href="#about">About</a>
         <a class="nav-link scroll-animated" href="#work">Work</a>
@@ -55,37 +49,36 @@
     </nav>
 </div>
 
-
 <!--the content div should not contain the navbar, as it shrinks its width by just a little bit, and therefore the
     navbar is no longer <browser-size> wide-->
 <div class="container">
 
+    <p></p>
+    <!-- this one's need to have some space between the first section and the navbar-->
+    <!--   <div id="piu" class="dynamically-positioned-anchor bg-inverse text-center main-div">
+    <h3>Piu!</h3>
 
-    <p></p> <!-- this one's need to have some space between the first section and the navbar-->
-    <div id="piu" class="dynamically-positioned-anchor bg-inverse text-center main-div">
-        <h3>Piu!</h3>
+    <div class="row justify-content-around">
 
-        <div class="row justify-content-around">
+      <div class="col-md-5">
+        <blockquote class="imgur-embed-pub" lang="en" data-id="YOotIwF">
+          <a href="//imgur.com/YOotIwF">View post on imgur.com</a>
+        </blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+      </div>
 
-            <div class="col-md-5">
-                <blockquote class="imgur-embed-pub" lang="en" data-id="YOotIwF">
-                    <a href="//imgur.com/YOotIwF">View post on imgur.com</a>
-                </blockquote>
-                <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-            </div>
+      <div class="col-md-5">
+        <blockquote class="imgur-embed-pub" lang="en" data-id="smjYRtS">
+          <a href="//imgur.com/smjYRtS">View post on imgur.com</a>
+        </blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+      </div>
 
-            <div class="col-md-5">
-                <blockquote class="imgur-embed-pub" lang="en" data-id="smjYRtS">
-                    <a href="//imgur.com/smjYRtS">View post on imgur.com</a>
-                </blockquote>
-                <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-            </div>
-
-        </div>
     </div>
+  </div> -->
 
-
-    <p></p> <!-- this one's need to have some space between the first section and the navbar-->
+    <p></p>
+    <!-- this one's need to have some space between the first section and the navbar-->
     <div id="about" class="dynamically-positioned-anchor bg-inverse main-div">
         <h3>About TheBestPessimist</h3>
 
@@ -94,19 +87,21 @@
                 <p>Programmer. Drinker. Android tinkerer. Tech enthusiast. </p>
                 <p>Gamer. PC Master Race. Not a console peasant.</p>
                 <p>Extremely forgetful.</p>
+                <p><a href="https://www.simson.net/ref/ugh.pdf" target="_blank">Linux hater</a>.</p>
                 <p><a href="http://web.mit.edu/~simsong/www/ugh.pdf" target="_blank">Linux hater</a>.</p>
+
             </div>
 
             <div class="col-md-4">
                 <img class=" rounded " width="120px"
-                     src="https://chat.tbp.land/user_avatar/chat.tbp.land/thebestpessimist/240/6_1.png">
+                     src="https://chat.tbp.land/user_avatar/chat.tbp.land/thebestpessimist/120/30_2.png">
             </div>
 
         </div>
     </div>
 
-
-    <p></p> <!-- this one's need to have some space between the first section and the navbar-->
+    <p></p>
+    <!-- this one's need to have some space between the first section and the navbar-->
     <div id="work" class="dynamically-positioned-anchor bg-inverse main-div">
         <h3>Work</h3>
 
@@ -114,11 +109,14 @@
             <a href="https://github.com/TheBestPessimist/" target="_blank">Github</a>.</p>
         <p>Currently learning how to web stuff, so that i can make a really cool application for my gf.</p>
         <p>At some point in time I could write good CUDA, but that was a long time ago.</p>
-        <p>I contributed to some open-source projects such as <a href="https://meta.discourse.org/">Discourse</a> (Ember/Ruby) and <a href="https://duplicacy.com">Duplicacy</a> (Golang).</p>
-        <p>I like to think I earn my living writing some Java and SQL and teaching others at a nice company.</p>
+        <p>I contributed to some open-source projects such as <a href="https://meta.discourse.org/">Discourse</a>
+            (Ember/Ruby) and <a href="https://duplicacy.com">Duplicacy</a> (Golang).</p>
+        <p>I like to think I earn my living writing some Java and SQL and teaching others how to do it at a nice
+            company.</p>
     </div>
 
-    <p></p> <!-- this one's need to have some space between the first section and the navbar-->
+    <p></p>
+    <!-- this one's need to have some space between the first section and the navbar-->
     <div id="me-on-the-internetz" class="dynamically-positioned-anchor bg-inverse text-center main-div">
         <h3>On the internetz</h3>
 
@@ -140,7 +138,6 @@
     </div>
 
 </div>
-
 
 <!--
     - p-3 = padding in all directions for $spacer size
