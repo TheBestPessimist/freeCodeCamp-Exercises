@@ -1,15 +1,209 @@
+:root {
+    --bg-color-main:   hsl(0, 0%, 93%);
+    --bg-color-alt:    hsl(0, 0%, 100%);
+    --bg-color-title:  linear-gradient(60deg, hsl(350, 38%, 65%), hsl(350, 38%, 45%));
+
+    --text-color-alt:  #fff;
+    --text-color-main: #000;
+
+    --button-color:    hsl(350, 38%, 65%);
+}
+
 body {
-    background: rgb(40, 21, 48) !important;
-    color:      #a0adba;
-    position:   relative;
+    background: var(--bg-color-main);
+    margin:     0;
+    color:      var(--text-color-main);
+    font-family: 'Sarabun', sans-serif;
 }
 
-.dynamically-positioned-anchor {
-    /*this one's modified in the method computeDynamicPaddingForAnchor()*/
-    padding-top: 0px;
+.main-container {
+    display:            grid;
+    grid-template-rows: auto 1fr auto;
+
+    /*@formatter:off*/
+    /*grid-template-areas:*/
+            /*"navbar   navbar   navbar"*/
+            /*".        content  content"*/
+            /*"footer   footer   footer";*/
+
+     grid-template-areas:
+            "navbar "
+            "content"
+            "footer ";
+
+    /*@formatter:on*/
 }
 
-.main-div {
+#top-navbar {
+    background: red;
+    height:     2em;
+    overflow:   hidden;
+    grid-area:  navbar;
+}
+
+#top-navbar > a {
+    display:    inline;
+    background: #dddddd;
+    padding:    15px;
+    margin:     15px;
+}
+
+.main-content {
+    grid-area:    content;
+
+    width:        60%;
+    margin-left:  auto;
+    margin-right: auto;
+
+    /*background: darkslateblue;*/
+}
+
+/*all the divs in the main content (about, work, internetz) should be stiled about the same*/
+.main-content > div {
     border-radius: 4px;
-    padding:       10px 0 10px 10px;
+    margin:        30px auto;
+    background:    var(--bg-color-alt);
+    padding:       0.1em 3em;
+    max-width:     650px;
+
+    box-shadow:    0 1px 3px hsla(0, 15%, 12%, 0.4);
 }
+
+
+.main-content-title {
+    background:    var(--bg-color-title);
+    color:         var(--text-color-alt);
+
+    border-radius: 3px;
+    margin:        -20px 15px 10px;
+    height:        4em;
+    width:         95%;
+
+    box-shadow:    0 12px 20px -10px rgba(176, 80, 96, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(176, 80, 96, 0.2);
+}
+
+
+#about {
+    display:               grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows:    auto 1fr;
+    /*@formatter:off*/
+    grid-template-areas:
+            "about-title    about-title"
+            "about-content  about-img";
+    /*@formatter:on*/
+}
+
+.about__title {
+    grid-area:  about-title;
+    text-align: center;
+}
+
+.about__content {
+    grid-area: about-content;
+}
+
+.about__img {
+    grid-area:    about-img;
+    justify-self: right;
+    align-self:   center;
+    margin-right: 5%;
+}
+
+.about__img > img {
+    border-radius: 4px;
+    /*border: 1px solid hsl(0, 0%, 87%);*/
+    box-shadow:    0 1px 2px hsla(0, 15%, 12%, 0.4);
+
+}
+
+
+.work__title {
+    text-align:    center;
+
+    display:       grid;
+    justify-items: center;
+    align-items:   center;
+}
+
+/**/
+
+#on-the-internetz {
+    display:       grid;
+    justify-items: center;
+    align-items:   center;
+}
+
+.on-the-internetz__title {
+    /*text-align: center;*/
+    display:       grid;
+    justify-items: center;
+    align-items:   center;
+}
+
+/*start internetz button animation*/
+.internetz__button {
+    text-decoration: none; /*hide the normal link underline*/
+    cursor:          pointer;
+    font-size:       2em;
+
+    margin:          10px;
+    border-radius:   4px;
+
+    background:      var(--bg-color-main);
+    color:           var(--button-color);
+
+    position:        relative;
+    height:          60px;
+    padding:         0 2em;
+
+    transition:      800ms ease all;
+
+    /* align fa icons inside anchors. `inline-flex` is needed because `flex` seems to be blocky
+    by default and the buttons would be arranged on multiple rows instead of a single one.*/
+    display:         inline-flex;
+    align-items:     center;
+}
+
+
+.internetz__button:hover {
+    background: var(--bg-color-alt);
+}
+
+.internetz__button:before, .internetz__button:after {
+    content:    '';
+    position:   absolute;
+    top:        0;
+    right:      0;
+    height:     2px;
+    width:      0;
+    background: var(--button-color);
+    transition: 400ms ease all;
+}
+
+.internetz__button:after {
+    top:    inherit;
+    right:  inherit;
+    left:   0;
+    bottom: 0;
+}
+
+.internetz__button:hover:before, .internetz__button:hover:after {
+    width:      100%;
+    transition: 400ms ease all;
+}
+
+/*end internetz button animation*/
+
+
+footer {
+    grid-area:       footer;
+    background:      aliceblue;
+    padding:         2px;
+
+    /*since i want the contents to be centered, flex seems the simple way*/
+    display:         flex;
+    justify-content: center;
+}
+
+

@@ -38,19 +38,19 @@ $(".scroll-animated").click(function () {
  *
  * @returns {number}
  */
-function getScrollPercent() {
-    return 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
-}
-
-function updateTopProgressBar() {
-    var theScrollPercent = getScrollPercent();
-
-    var topProgressBar = $("#top-progress-bar")[0];
-    topProgressBar.style.width = theScrollPercent + "%";
-    topProgressBar.setAttribute("aria-valuenow", theScrollPercent.toString());
-}
-
-window.onscroll = updateTopProgressBar;
+// function getScrollPercent() {
+//     return 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+// }
+//
+// function updateTopProgressBar() {
+//     var theScrollPercent = getScrollPercent();
+//
+//     var topProgressBar = $("#top-progress-bar")[0];
+//     topProgressBar.style.width = theScrollPercent + "%";
+//     topProgressBar.setAttribute("aria-valuenow", theScrollPercent.toString());
+// }
+//
+// window.onscroll = updateTopProgressBar;
 
 
 //    /**
